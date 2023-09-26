@@ -19,3 +19,13 @@
 .search-input:focus-within {
   outline: 1px solid $btn-blue;
 }
+
+@media (max-width: 560px) {
+  :host {
+    margin-right: 0;
+  }
+
+  .search-input {
+    min-width: 200px;
+  }
+}
