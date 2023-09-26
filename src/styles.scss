@@ -14,7 +14,6 @@ html,
 body,
 app-root {
   height: 100%;
-  overflow: hidden;
 }
 
 body {
@@ -32,13 +31,66 @@ main {
   flex-grow: 1;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+// scrollbar custom start
+
+::-webkit-scrollbar {
+  width: 5px;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px $grey-background;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $grey-background;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $btn-blue-hover;
+}
+
+// scrollbar custom end
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: inherit;
+  height: auto;
   max-width: 1430px;
-  padding: 0 1em;
   margin: 0 auto;
+  padding: 1em;
+}
+
+.btn {
+  border: none;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.btn-blue {
+  background-color: $btn-blue;
+  color: $white-background;
+}
+
+.btn-blue:hover {
+  background-color: $btn-blue-hover;
+}
+
+.img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.h3 {
+  margin: 0;
 }
 

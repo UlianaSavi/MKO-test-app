@@ -1,0 +1,25 @@
+@import '../../../styles/variables';
+
+.table-item {
+  display: flex;
+  gap: 10px;
+  background-color: $white-background;
+  padding: 10px;
+  color: $grey;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 10px;
+
+  &__cell {
+    width: 100%;
+    max-width: 150px;
+  }
+
+  &__cell:last-child {
+    width: 100%;
+    max-width: 100%;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

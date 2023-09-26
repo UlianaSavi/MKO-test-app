@@ -1,0 +1,18 @@
+@import "../../../styles/variables";
+
+:host {
+  display: flex;
+  align-items: center;
+  height: fit-content;
+  justify-content: center;
+}
+
+.table-title {
+  color: $dark-grey;
+  font-size: 1.2em;
+}
+
+.table-title-icon .img {
+  max-width: 20px;
+  margin-right: 5px;
+}
