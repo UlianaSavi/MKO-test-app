@@ -1,6 +1,6 @@
 @import "../../../styles/variables";
 
-:host {
+.sidebar {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -80,7 +80,7 @@
 }
 
 @media (max-width: 750px) {
-  :host {
+  .sidebar {
     position: absolute;
     top: 0;
     right: 0;
@@ -100,7 +100,7 @@
 }
 
 @media (max-width: 420px) {
-  :host {
+  .sidebar {
     position: absolute;
     top: 0;
     right: 0;

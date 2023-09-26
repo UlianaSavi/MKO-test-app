@@ -8,7 +8,10 @@
   color: $grey;
   font-size: 14px;
   font-weight: 500;
-  margin: 10px;
+  margin: 0 10px;
+
+  cursor: pointer;
+  transition: .3s;
 
   &__cell {
     width: 100%;
@@ -22,4 +25,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+}
+
+.table-item:hover {
+  background-color: $blue-background;
+  transition: .3s;
 }

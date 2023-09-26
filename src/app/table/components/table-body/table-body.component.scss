@@ -15,7 +15,7 @@
   color: $grey;
   font-size: 14px;
   font-weight: 500;
-  margin: 10px;
+  margin: 0 10px;
 
   &__item {
     width: 100%;
@@ -35,17 +35,14 @@
 }
 
 @media (max-width: 420px) {
-  :host {
-    height: 100vh;
+  .table-wrapper {
+    height: 85%;
+
+    overflow-x: auto;
   }
 
   .table-colums {
     font-size: 0.8em;
   }
 
-  .table-item {
-    gap: 5px;
-    padding: 3px 11px;
-    font-size: .8em;
-  }
 }

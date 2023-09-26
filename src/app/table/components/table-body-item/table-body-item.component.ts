@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SidebarService } from 'src/app/core/serviсes/sidebar.servise';
 
 @Component({
   selector: 'app-table-body-item',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./table-body-item.component.scss']
 })
 export class TableBodyItemComponent {
+  constructor(
+    private sidebarService: SidebarService,
+  ) {}
 
+  setSidebarVisible = () => {
+    this.sidebarService.setSingInStatus(true);
+  }
 }

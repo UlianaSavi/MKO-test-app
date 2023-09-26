@@ -1,25 +1,27 @@
-<div class="wrapper">
-  <h3 class="h3">Данные сообщения</h3>
-  <div class="cross">
-    <img class="img" src="/assets/icons/cross.svg" alt="cross">
+<div class="sidebar" *ngIf="isSidebarVisible">
+  <div class="wrapper">
+    <h3 class="h3">Данные сообщения</h3>
+    <div class="cross" (click)="setSidebarVisible()">
+      <img class="img" src="/assets/icons/cross.svg" alt="cross">
+    </div>
+    <div class="info">
+      <div class="info__item">
+        <div class="info__item__title">ID</div>
+        <div class="info__item__text">123</div>
+      </div>
+      <div class="info__item">
+        <div class="info__item__title">Имя</div>
+        <div class="info__item__text">Какое-то имя</div>
+      </div>
+      <div class="info__item">
+        <div class="info__item__title">Дата</div>
+        <div class="info__item__text">Энное число Энного года в такое-то время</div>
+      </div>
+      <div class="info__item">
+        <div class="info__item__title">Текст сообщения</div>
+        <div class="info__item__text">Текст сообщенияТекст сообщенияТекст сообщенияТекст сообщения Текст сообщения</div>
+      </div>
+    </div>
   </div>
-  <div class="info">
-    <div class="info__item">
-      <div class="info__item__title">ID</div>
-      <div class="info__item__text">123</div>
-    </div>
-    <div class="info__item">
-      <div class="info__item__title">Имя</div>
-      <div class="info__item__text">Какое-то имя</div>
-    </div>
-    <div class="info__item">
-      <div class="info__item__title">Дата</div>
-      <div class="info__item__text">Энное число Энного года в такое-то время</div>
-    </div>
-    <div class="info__item">
-      <div class="info__item__title">Текст сообщения</div>
-      <div class="info__item__text">Текст сообщенияТекст сообщенияТекст сообщенияТекст сообщения Текст сообщения</div>
-    </div>
-  </div>
+  <button class="btn btn-blue">Изменить</button>
 </div>
-<button class="btn btn-blue">Изменить</button>
