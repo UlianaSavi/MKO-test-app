@@ -16,6 +16,12 @@ import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [
+    HeaderComponent,
+    SearchComponent,
+    EditModalComponent,
+    ConfirmModalComponent
+  ],
 })
 export class CoreModule { }

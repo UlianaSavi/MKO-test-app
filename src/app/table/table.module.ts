@@ -4,6 +4,7 @@ import { TableTitleComponent } from './components/table-title/table-title.compon
 import { TableBodyComponent } from './components/table-body/table-body.component';
 import { TableBodyItemComponent } from './components/table-body-item/table-body-item.component';
 import { TableNavComponent } from './components/table-nav/table-nav.component';
+import { TableComponent } from './components/table/table.component';
 
 
 
@@ -12,10 +13,12 @@ import { TableNavComponent } from './components/table-nav/table-nav.component';
     TableTitleComponent,
     TableBodyComponent,
     TableBodyItemComponent,
-    TableNavComponent
+    TableNavComponent,
+    TableComponent
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [TableComponent]
 })
 export class TableModule { }
