@@ -27,6 +27,10 @@
   }
 }
 
+.table-item.selected {
+  background-color: $blue-background;
+}
+
 .table-item:hover {
   background-color: $blue-background;
   transition: .3s;

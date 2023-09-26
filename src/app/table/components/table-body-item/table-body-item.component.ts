@@ -11,7 +11,10 @@ export class TableBodyItemComponent {
     private sidebarService: SidebarService,
   ) {}
 
+  selected = false;
+
   setSidebarVisible = () => {
     this.sidebarService.setSingInStatus(true);
+    // this.selected = true; // TODO: only one can be selected
   }
 }
