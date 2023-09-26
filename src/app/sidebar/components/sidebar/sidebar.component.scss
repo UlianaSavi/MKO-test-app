@@ -5,6 +5,8 @@
   min-width: 300px;
   max-width: 400px;
   padding: 10px;
+
+  position: relative;
 }
 
 .h3 {
@@ -12,6 +14,21 @@
 
   color: $dark-grey;
   font-size: 1.2em;
+}
+
+.cross {
+  display: none;
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+
+  cursor: pointer;
+}
+
+.img {
+  max-width: 20px;
 }
 
 .info {
@@ -60,6 +77,10 @@
     background: $white-background;
 
     box-shadow: $box-shadow;
+  }
+
+  .cross {
+    display: block;
   }
 }
 
