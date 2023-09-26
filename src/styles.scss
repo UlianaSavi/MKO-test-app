@@ -64,6 +64,7 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 10px;
   height: auto;
   max-width: 1430px;
   margin: 0 auto;
@@ -92,5 +93,12 @@ ul {
 
 .h3 {
   margin: 0;
+}
+
+@media (max-width: 750px) {
+  .container {
+    position: relative;
+    justify-content: flex-start;
+  }
 }
 
