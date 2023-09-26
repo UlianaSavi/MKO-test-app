@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./table-body.component.scss']
 })
 export class TableBodyComponent {
-
 }

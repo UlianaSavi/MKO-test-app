@@ -1,0 +1,22 @@
+{
+  "messages": [
+    {
+      "id": 1,
+      "username": "json-server",
+      "datetime": "1695748296820",
+      "message": "messagemessagemessagemessage messagemessage messagemessage"
+    },
+    {
+      "id": 2,
+      "username": "json-server-2",
+      "datetime": "1695748296820",
+      "message": "messagemessagemessagemessage messagemessage messagemessage"
+    },
+    {
+      "id": 3,
+      "username": "json-server-2",
+      "datetime": "1695748296820",
+      "message": "messagemessagemessagemessage messagemessage messagemessage"
+    }
+]
+}
