@@ -5,6 +5,7 @@ import { TableBodyComponent } from './components/table-body/table-body.component
 import { TableBodyItemComponent } from './components/table-body-item/table-body-item.component';
 import { TableNavComponent } from './components/table-nav/table-nav.component';
 import { TableComponent } from './components/table/table.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -17,7 +18,8 @@ import { TableComponent } from './components/table/table.component';
     TableComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    NgxPaginationModule
   ],
   exports: [TableComponent]
 })

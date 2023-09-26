@@ -1,0 +1,21 @@
+.pagination ::ng-deep .ngx-pagination {
+  display: flex;
+  justify-content: space-between;
+
+  li {
+    margin: 0 20px;
+  }
+}
+
+.pagination ::ng-deep .ngx-pagination::before,
+.pagination ::ng-deep .ngx-pagination::after {
+  display: none;
+}
+
+@media (max-width: 420px) {
+  .pagination ::ng-deep nav {
+    position: relative;
+    top: -20px;
+    background: white;
+  }
+}

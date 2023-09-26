@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./table-nav.component.scss']
 })
 export class TableNavComponent {
-
+  p: number = 1;
+  collection: any[] = [1, 2];
 }
