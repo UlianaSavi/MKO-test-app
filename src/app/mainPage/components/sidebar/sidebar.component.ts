@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IMessage } from 'src/app/core/models/message.model';
 import { ApiService } from 'src/app/core/serviсes/api.service';
@@ -13,26 +14,48 @@ export class SidebarComponent {
   constructor(
     private sidebarService: SidebarService,
     private apiService: ApiService,
+    private route: ActivatedRoute,
   ) {}
+
+  routeSubscription: Subscription | null = null;
 
   isSidebarVisible = true;
 
   message: IMessage | null = null;
 
-  sidebarStatusSubscription: Subscription | undefined;
+  emptyMessage = 'Выберите сообщение из таблицы для отображения информации.';
+
+  showemptyMessage = false;
+
+  selectedId = 0;
+
+  sidebarStatusSubscription: Subscription | null = null;
 
   async ngOnInit() {
     this.sidebarStatusSubscription = this.sidebarService.isSidebarVisible$.subscribe(
       (status) => (this.isSidebarVisible = status)
     );
 
-    const data = await this.apiService.getById('1'); //TODO getting id from Router
-    if (data) {
-      this.message = data;
-    }
+    this.routeSubscription = this.route.params.subscribe(async (params) => {
+      this.selectedId = params['id'] || 0;
+
+      if (this.selectedId !== 0) {
+        const data = await this.apiService.getById(this.selectedId);
+        if (data) {
+          this.message = data;
+        }
+      }
+      if (this.selectedId === 0) {
+        this.showemptyMessage = true;
+      }
+    });
   }
 
   setSidebarVisible = () => {
     this.sidebarService.setSingInStatus(false);
+  }
+
+  ngOnDestroy() {
+    this.routeSubscription?.unsubscribe();
   }
 }

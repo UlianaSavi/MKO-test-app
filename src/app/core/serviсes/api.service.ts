@@ -30,7 +30,7 @@ export class ApiService {
     return res;
   }
 
-  getById = async (id: string) => {
+  getById = async (id: number) => {
     let res: IMessage | null = null;
     try {
       const data = await fetch(`${ApiService.URL}${ApiService.MESSAGES_ROUTE}/${id}`, {
@@ -47,7 +47,7 @@ export class ApiService {
     return res;
   }
 
-  create = async (id: string, dataToCreate: IMessage) => {
+  create = async (id: number, dataToCreate: IMessage) => {
     const res = await fetch(`${ApiService.URL}/${id}`, {
       method: 'POST',
       headers: {
@@ -59,7 +59,7 @@ export class ApiService {
     return res;
   }
 
-  update = async (id: string, dataToUpdate: IMessage) => {
+  update = async (id: number, dataToUpdate: IMessage) => {
     const res = await fetch(`${ApiService.URL}/${id}`, {
       method: 'PUT',
       headers: {
@@ -71,7 +71,7 @@ export class ApiService {
     return res;
   }
 
-  remove = async (id: string) => {
+  remove = async (id: number) => {
     const res = await fetch(`${ApiService.URL}/${id}`, {
       method: 'DELETE',
       headers: {

@@ -4,24 +4,25 @@
     <div class="cross" (click)="setSidebarVisible()">
       <img class="img" src="/assets/icons/cross.svg" alt="cross">
     </div>
-    <div class="info">
+    <div class="info" *ngIf="!showemptyMessage && message">
       <div class="info__item">
         <div class="info__item__title">ID</div>
-        <div class="info__item__text">123</div>
+        <div class="info__item__text">{{ message.id }}</div>
       </div>
       <div class="info__item">
         <div class="info__item__title">Имя</div>
-        <div class="info__item__text">Какое-то имя</div>
+        <div class="info__item__text">{{ message.username }}</div>
       </div>
       <div class="info__item">
         <div class="info__item__title">Дата</div>
-        <div class="info__item__text">Энное число Энного года в такое-то время</div>
+        <div class="info__item__text">{{ message.datetime }}</div>
       </div>
       <div class="info__item">
         <div class="info__item__title">Текст сообщения</div>
-        <div class="info__item__text">Текст сообщенияТекст сообщенияТекст сообщенияТекст сообщения Текст сообщения</div>
+        <div class="info__item__text">{{ message.message }}</div>
       </div>
     </div>
+    <h4 *ngIf="showemptyMessage">{{ emptyMessage }}</h4>
   </div>
-  <button class="btn btn-blue">Изменить</button>
+  <button class="btn btn-blue" [disabled]="showemptyMessage">Изменить</button>
 </div>

@@ -92,6 +92,12 @@ ul {
   background-color: $btn-blue-hover;
 }
 
+.btn-blue:disabled {
+  background-color: $grey-background;
+  color: $grey;
+  cursor: initial;
+}
+
 .img {
   width: 100%;
   object-fit: cover;
