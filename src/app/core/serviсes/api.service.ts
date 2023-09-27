@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { IMessage } from '../models/message.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +13,19 @@ export class ApiService {
   private static MESSAGES_ROUTE = '/messages';
 
   getAll = async () => {
-    const res = await fetch(`${ApiService.URL}${ApiService.MESSAGES_ROUTE}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+    let res: IMessage[] | null = null;
+    try {
+      const data = await fetch(`${ApiService.URL}${ApiService.MESSAGES_ROUTE}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      res = await data.json()
+    } catch (error) {
+      console.log(error);
+    }
 
     return res;
   }
@@ -33,7 +41,7 @@ export class ApiService {
     return res;
   }
 
-  create = async (id: string, dataToCreate: unknown) => {
+  create = async (id: string, dataToCreate: IMessage) => {
     const res = await fetch(`${ApiService.URL}/${id}`, {
       method: 'POST',
       headers: {
@@ -45,7 +53,7 @@ export class ApiService {
     return res;
   }
 
-  update = async (id: string, dataToUpdate: unknown) => {
+  update = async (id: string, dataToUpdate: IMessage) => {
     const res = await fetch(`${ApiService.URL}/${id}`, {
       method: 'PUT',
       headers: {

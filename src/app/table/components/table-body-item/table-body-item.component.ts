@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IMessage } from 'src/app/core/models/message.model';
 import { SidebarService } from 'src/app/core/serviсes/sidebar.servise';
 
 @Component({
@@ -11,10 +12,11 @@ export class TableBodyItemComponent {
     private sidebarService: SidebarService,
   ) {}
 
+  @Input() message: IMessage | null = null;
+
   selected = false;
 
   setSidebarVisible = () => {
     this.sidebarService.setSingInStatus(true);
-    // this.selected = true; // TODO: only one can be selected
   }
 }

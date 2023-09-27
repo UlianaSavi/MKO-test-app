@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { TableModule } from './table/table.module';
 import { SidebarModule } from './sidebar/sidebar.module';
 import { CoreModule } from './core/core.module';
-import { HeaderComponent } from './core/components/header/header.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,6 +16,7 @@ import { HeaderComponent } from './core/components/header/header.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     TableModule,
     SidebarModule,
     CoreModule
