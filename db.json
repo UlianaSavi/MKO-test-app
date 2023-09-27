@@ -1,28 +1,22 @@
 {
   "messages": [
     {
-      "id": 0,
+      "id": 1,
       "username": "json-server0",
       "datetime": "1695748296820",
       "message": "messagemessagemessagemessage messagemessage messagemessage"
     },
     {
-      "id": 1,
+      "id": 2,
       "username": "json-server1",
       "datetime": "1695748296820",
       "message": "messagemessagemessagemessage messagemessage messagemessage"
     },
     {
-      "id": 2,
+      "id": 3,
       "username": "json-server-2",
       "datetime": "1695748296820",
       "message": "messagemessagemessagemessage messagemessage messagemessage"
-    },
-    {
-      "id": 3,
-      "username": "json-server-3",
-      "datetime": "1695748296820",
-      "message": "messagsage"
     },
     {
       "id": 4,
@@ -41,6 +35,12 @@
       "username": "json-server-6",
       "datetime": "1695748296820",
       "message": "messagemessagemes"
+    },
+    {
+      "id": 7,
+      "username": "json-server-7",
+      "datetime": "1695748296820",
+      "message": "messagsage"
     }
 ]
 }

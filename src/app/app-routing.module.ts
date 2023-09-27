@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EditModalComponent } from './core/components/edit-modal/edit-modal.component';
 import { DeleteModalComponent } from './core/components/delete-modal/delete-modal.component';
-import { TableComponent } from './table/components/table/table.component';
+import { TableComponent } from './mainPage/components/table/table.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'messages', pathMatch: 'full'},
