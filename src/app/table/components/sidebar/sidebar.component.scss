@@ -79,10 +79,10 @@
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 975px) {
   .sidebar {
     position: absolute;
-    top: 0;
+    top: $header-height;
     right: 0;
     width: 100%;
     max-width: 300px;
@@ -101,15 +101,6 @@
 
 @media (max-width: 420px) {
   .sidebar {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
     max-width: 100%;
-    padding: 10px;
-
-    background: $white-background;
-
-    box-shadow: $box-shadow;
   }
 }

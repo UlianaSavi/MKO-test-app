@@ -31,12 +31,18 @@ export class ApiService {
   }
 
   getById = async (id: string) => {
-    const res = await fetch(`${ApiService.URL}${ApiService.MESSAGES_ROUTE}/${id}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    });
+    let res: IMessage | null = null;
+    try {
+      const data = await fetch(`${ApiService.URL}${ApiService.MESSAGES_ROUTE}/${id}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      res = await data.json()
+    } catch (error) {
+      console.log(error);
+    }
 
     return res;
   }

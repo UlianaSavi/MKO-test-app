@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { SearchComponent } from './components/search/search.component';
 import { EditModalComponent } from './components/edit-modal/edit-modal.component';
-import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
+import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
 
 
 
@@ -12,7 +12,7 @@ import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.
     HeaderComponent,
     SearchComponent,
     EditModalComponent,
-    ConfirmModalComponent
+    DeleteModalComponent,
   ],
   imports: [
     CommonModule
@@ -21,7 +21,6 @@ import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.
     HeaderComponent,
     SearchComponent,
     EditModalComponent,
-    ConfirmModalComponent
   ],
 })
 export class CoreModule { }

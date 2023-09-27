@@ -1,9 +1,36 @@
+@import "../../../styles/variables";
+
 :host {
-  width: 70%;
+  display: flex;
+  width: 100%;
 }
 
+.table-wrapper {
+  width: 100%;
+}
+
+.table-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+
+  color: $dark-grey;
+  font-size: 1.2em;
+}
+
+.table-title__icon .img {
+  max-width: 20px;
+  margin-right: 5px;
+}
+
+
 @media (max-width: 420px) {
-  :host {
+  .table-title {
+    font-size: 0.8em;
+  }
+
+  .table-wrapper {
     width: 100%;
   }
 }

@@ -18,4 +18,11 @@ export class TableBodyComponent {
       this.messages = data;
     }
   }
+
+  async ngOnChanges() {
+    const data = await this.apiService.getAll();
+    if (data) {
+      this.messages = data;
+    }
+  }
 }

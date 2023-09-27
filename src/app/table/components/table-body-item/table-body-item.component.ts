@@ -14,7 +14,7 @@ export class TableBodyItemComponent {
 
   @Input() message: IMessage | null = null;
 
-  selected = false;
+  selected = false; //TODO: change selected by click
 
   setSidebarVisible = () => {
     this.sidebarService.setSingInStatus(true);
