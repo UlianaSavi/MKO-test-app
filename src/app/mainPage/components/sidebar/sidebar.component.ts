@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IMessage } from 'src/app/core/models/message.model';
 import { ApiService } from 'src/app/core/serviсes/api.service';
-import { SidebarService } from 'src/app/core/serviсes/sidebar.servise';
+import { PanelsOpenService } from 'src/app/core/serviсes/panelsOpen.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -12,7 +12,7 @@ import { SidebarService } from 'src/app/core/serviсes/sidebar.servise';
 })
 export class SidebarComponent {
   constructor(
-    private sidebarService: SidebarService,
+    private panelsOpenService: PanelsOpenService,
     private apiService: ApiService,
     private route: ActivatedRoute,
   ) {}
@@ -32,7 +32,7 @@ export class SidebarComponent {
   sidebarStatusSubscription: Subscription | null = null;
 
   async ngOnInit() {
-    this.sidebarStatusSubscription = this.sidebarService.isSidebarVisible$.subscribe(
+    this.sidebarStatusSubscription = this.panelsOpenService.isSidebarVisible$.subscribe(
       (status) => (this.isSidebarVisible = status)
     );
 
@@ -52,7 +52,11 @@ export class SidebarComponent {
   }
 
   setSidebarVisible = () => {
-    this.sidebarService.setSingInStatus(false);
+    this.panelsOpenService.setSidebarVisibleStatus(false);
+  }
+
+  showEditModal = () => {
+    this.panelsOpenService.setEditModalVisibleStatus(true);
   }
 
   ngOnDestroy() {

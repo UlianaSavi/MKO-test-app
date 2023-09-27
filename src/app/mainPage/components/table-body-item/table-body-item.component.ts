@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IMessage } from 'src/app/core/models/message.model';
-import { SidebarService } from 'src/app/core/serviсes/sidebar.servise';
+import { PanelsOpenService } from 'src/app/core/serviсes/panelsOpen.service';
 
 @Component({
   selector: 'app-table-body-item',
@@ -9,7 +9,7 @@ import { SidebarService } from 'src/app/core/serviсes/sidebar.servise';
 })
 export class TableBodyItemComponent {
   constructor(
-    private sidebarService: SidebarService,
+    private panelsOpenService: PanelsOpenService,
   ) {}
 
   @Input() message: IMessage | null = null;
@@ -17,6 +17,6 @@ export class TableBodyItemComponent {
   selected = false; //TODO: change selected by click
 
   setSidebarVisible = () => {
-    this.sidebarService.setSingInStatus(true);
+    this.panelsOpenService.setSidebarVisibleStatus(true);
   }
 }

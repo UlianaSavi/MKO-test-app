@@ -121,10 +121,23 @@ ul {
 }
 
 .modal-wrapper {
+  position: relative;
   width: 100%;
-  max-width: 450px;
+  max-width: 650px;
   padding: 24px 20px 40px 25px;
 
   border-radius: 10px;
   background: $white-background;
+}
+
+.cross {
+  display: block;
+  width: fit-content;
+  max-width: 20px;
+  height: fit-content;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+
+  cursor: pointer;
 }

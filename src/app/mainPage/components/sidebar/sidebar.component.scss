@@ -24,17 +24,6 @@
   flex-direction: column;
 }
 
-.cross {
-  display: none;
-  width: fit-content;
-  height: fit-content;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-
-  cursor: pointer;
-}
-
 .img {
   max-width: 20px;
 }
@@ -44,6 +33,17 @@
   padding: 10px;
   border-radius: 5px;
   font-weight: 500;
+}
+
+.cross {
+  display: none;
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+
+  cursor: pointer;
 }
 
 .info {

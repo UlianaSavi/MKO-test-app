@@ -4,6 +4,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SearchComponent } from './components/search/search.component';
 import { EditModalComponent } from './components/edit-modal/edit-modal.component';
 import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -15,7 +16,8 @@ import { DeleteModalComponent } from './components/delete-modal/delete-modal.com
     DeleteModalComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
   ],
   exports: [
     HeaderComponent,
