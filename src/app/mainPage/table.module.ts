@@ -6,6 +6,7 @@ import { TableNavComponent } from './components/table-nav/table-nav.component';
 import { TableComponent } from './components/table/table.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -19,7 +20,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
   ],
   imports: [
     CommonModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    RouterModule,
   ],
   exports: [TableComponent]
 })
