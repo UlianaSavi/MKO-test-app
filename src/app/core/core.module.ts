@@ -5,6 +5,7 @@ import { SearchComponent } from './components/search/search.component';
 import { EditModalComponent } from './components/edit-modal/edit-modal.component';
 import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
 import { RouterModule } from '@angular/router';
+import { CreateModalComponent } from './components/create-modal/create-modal.component';
 
 
 
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
     HeaderComponent,
     SearchComponent,
     EditModalComponent,
-    DeleteModalComponent
+    DeleteModalComponent,
+    CreateModalComponent,
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { RouterModule } from '@angular/router';
     HeaderComponent,
     SearchComponent,
     EditModalComponent,
-    DeleteModalComponent
+    DeleteModalComponent,
+    CreateModalComponent,
   ],
 })
 export class CoreModule { }

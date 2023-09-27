@@ -7,7 +7,7 @@
       <input class="input" type="text" placeholder="Введите новый текст сообщения">
       <input class="input" type="date" placeholder="Выберите новую дату">
       <button type="submit" class="btn btn-blue">Сохранить</button>
-      <a class="cross" [routerLink]="['../']" routerLinkActive="active">
+      <a class="cross" (click)="setEditModalVisible()">
         <img class="img" src="/assets/icons/cross.svg" alt="cross">
       </a>
     </form>

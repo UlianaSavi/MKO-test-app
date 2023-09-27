@@ -3,18 +3,18 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PanelsOpenService } from '../../serviсes/panelsOpen.service';
 
 @Component({
-  selector: 'app-edit-modal',
-  templateUrl: './edit-modal.component.html',
-  styleUrls: ['./edit-modal.component.scss']
+  selector: 'app-create-modal',
+  templateUrl: './create-modal.component.html',
+  styleUrls: ['./create-modal.component.scss']
 })
-export class EditModalComponent {
+export class CreateModalComponent {
   constructor(private panelsOpenService: PanelsOpenService){}
 
-  EditMessageDataForm = new FormGroup({
+  CreateMessageDataForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
   });
 
-  setEditModalVisible = () => {
-    this.panelsOpenService.setEditModalVisibleStatus(false);
+  setCreateModalVisible = () => {
+    this.panelsOpenService.setCreateModalVisibleStatus(false);
   }
 }

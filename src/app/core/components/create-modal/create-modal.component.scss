@@ -1,0 +1,25 @@
+@import "../../../styles/variables";
+
+:host {
+  position: absolute;
+}
+
+.create-modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.input {
+  width: 100%;
+  min-height: 35px;
+  padding: 0 10px;
+  border: 1px solid $grey;
+  border-radius: 5px;
+}

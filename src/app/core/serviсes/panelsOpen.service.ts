@@ -14,6 +14,10 @@ export class PanelsOpenService {
 
   isEditModalVisible$ = this.isEditModalVisible$$.asObservable();
 
+  private isCreateModalVisible$$ = new Subject<boolean>();
+
+  isCreateModalVisible$ = this.isCreateModalVisible$$.asObservable();
+
   private isDeleteModalVisible$$ = new Subject<boolean>();
 
   isDeleteModalVisible$ = this.isDeleteModalVisible$$.asObservable();
@@ -28,5 +32,9 @@ export class PanelsOpenService {
 
   setDeleteModalVisibleStatus(status: boolean) {
     this.isDeleteModalVisible$$.next(status);
+  }
+
+  setCreateModalVisibleStatus(status: boolean) {
+    this.isCreateModalVisible$$.next(status);
   }
 }
