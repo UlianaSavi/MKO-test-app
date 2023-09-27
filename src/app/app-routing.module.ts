@@ -8,8 +8,6 @@ const routes: Routes = [
   { path: '', redirectTo: 'messages', pathMatch: 'full'},
   { path: 'messages', component: TableComponent,},
   { path: 'messages/:id', component: TableComponent},
-  // { path: 'messages/:id/edit', component: EditModalComponent},
-  // { path: 'messages/:id/delete', component: DeleteModalComponent},
 ];
 
 @NgModule({

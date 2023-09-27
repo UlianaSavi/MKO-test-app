@@ -4,5 +4,8 @@
     <li class="table-item__cell">{{ message?.username || '' }}</li>
     <li class="table-item__cell">{{ message?.datetime || '' }}</li>
     <li class="table-item__cell">{{ message?.message || '' }}</li>
+    <li class="table-item__cell">
+      <button class="btn btn-blue btn-delete" (click)="setDeleteModalVisible()">delete</button>
+    </li>
   </ul>
 </a>

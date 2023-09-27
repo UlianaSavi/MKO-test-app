@@ -14,9 +14,13 @@ export class TableComponent {
 
   isCreateModalVisible = false;
 
+  isDeleteModalVisible = false;
+
   editModalVisibleSubscription: Subscription | null = null;
 
   createModalVisibleSubscription: Subscription | null = null;
+
+  deleteModalVisibleSubscription: Subscription | null = null;
 
   async ngOnInit() {
     this.editModalVisibleSubscription = this.panelsOpenService.isEditModalVisible$.subscribe(
@@ -24,6 +28,9 @@ export class TableComponent {
     );
     this.createModalVisibleSubscription = this.panelsOpenService.isCreateModalVisible$.subscribe(
       (status) => (this.isCreateModalVisible = status)
+    );
+    this.deleteModalVisibleSubscription = this.panelsOpenService.isDeleteModalVisible$.subscribe(
+      (status) => (this.isDeleteModalVisible = status)
     );
   }
 

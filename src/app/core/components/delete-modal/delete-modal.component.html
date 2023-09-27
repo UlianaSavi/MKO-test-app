@@ -1,5 +1,13 @@
-<h1>Подтверждение действия на странице</h1>
-<p>Вы уверены, что хотите удалить эту запись без возможности восстановления?</p>
-<button class="bnt btn-blue">Подтвердить</button>
-<div class="blackout"></div>
+<div class="blackout">
+  <div class="modal-wrapper delete-modal">
+    <h3 class="h3">Подтверждение действия на странице</h3>
+    <form class="delete-modal__form">
+      <p>Вы уверены, что хотите удалить эту запись без возможности восстановления?</p>
+      <button  type="submit" class="btn btn-blue">Подтвердить</button>
+      <a class="cross" (click)="setDeleteModalVisible()">
+        <img class="img" src="/assets/icons/cross.svg" alt="cross">
+      </a>
+    </form>
+  </div>
+</div>
 

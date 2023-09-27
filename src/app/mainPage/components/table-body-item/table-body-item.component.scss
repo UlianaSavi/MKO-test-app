@@ -16,14 +16,16 @@
   &__cell {
     width: 100%;
     max-width: 150px;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__cell:last-child {
     width: 100%;
     max-width: 100%;
-    text-wrap: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    display: flex;
+    justify-content: flex-end;
   }
 }
 
@@ -35,3 +37,16 @@
   background-color: $blue-background;
   transition: .3s;
 }
+
+.btn-delete {
+  visibility: hidden;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.table-item:hover {
+  .btn-delete {
+    visibility: visible;
+  }
+}
+

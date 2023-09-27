@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PanelsOpenService } from '../../serviсes/panelsOpen.service';
 
 @Component({
   selector: 'app-delete-modal',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./delete-modal.component.scss']
 })
 export class DeleteModalComponent {
+  constructor(private panelsOpenService: PanelsOpenService){}
 
+  setDeleteModalVisible = () => {
+    this.panelsOpenService.setDeleteModalVisibleStatus(false);
+  }
 }
