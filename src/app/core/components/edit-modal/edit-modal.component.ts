@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-modal',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./edit-modal.component.scss']
 })
 export class EditModalComponent {
-
+  EditMessageDataForm = new FormGroup({
+    фыв: new FormControl('', [Validators.required]),
+  });
 }

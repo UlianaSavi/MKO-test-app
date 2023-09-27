@@ -12,7 +12,7 @@ import { DeleteModalComponent } from './components/delete-modal/delete-modal.com
     HeaderComponent,
     SearchComponent,
     EditModalComponent,
-    DeleteModalComponent,
+    DeleteModalComponent
   ],
   imports: [
     CommonModule
@@ -21,6 +21,7 @@ import { DeleteModalComponent } from './components/delete-modal/delete-modal.com
     HeaderComponent,
     SearchComponent,
     EditModalComponent,
+    DeleteModalComponent
   ],
 })
 export class CoreModule { }

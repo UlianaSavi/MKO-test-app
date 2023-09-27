@@ -7,6 +7,8 @@ import { TableComponent } from './components/table/table.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
+import { CoreModule } from '../core/core.module';
+import { EditModalComponent } from '../core/components/edit-modal/edit-modal.component';
 
 
 
@@ -22,6 +24,7 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     NgxPaginationModule,
     RouterModule,
+    CoreModule
   ],
   exports: [TableComponent]
 })
