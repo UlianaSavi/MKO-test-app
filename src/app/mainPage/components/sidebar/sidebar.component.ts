@@ -31,18 +31,18 @@ export class SidebarComponent {
 
   sidebarStatusSubscription: Subscription | null = null;
 
-  async ngOnInit() {
+  ngOnInit() {
     this.sidebarStatusSubscription = this.panelsOpenService.isSidebarVisible$.subscribe(
       (status) => (this.isSidebarVisible = status)
     );
 
-    this.routeSubscription = this.route.params.subscribe(async (params) => {
+    this.routeSubscription = this.route.params.subscribe((params) => {
       this.selectedId = params['id'] || 0;
 
       if (this.selectedId !== 0) {
-        const data = await this.apiService.getById(this.selectedId);
-        if (data) {
-          this.message = data;
+        const res = this.apiService.getById(this.selectedId);
+        if (res) {
+          res.subscribe((data) => this.message = data)
         }
       }
       if (this.selectedId === 0) {
@@ -61,5 +61,6 @@ export class SidebarComponent {
 
   ngOnDestroy() {
     this.routeSubscription?.unsubscribe();
+    this.sidebarStatusSubscription?.unsubscribe();
   }
 }

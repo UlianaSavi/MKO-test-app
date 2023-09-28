@@ -15,18 +15,13 @@ export class TableBodyComponent {
 
   selectedMessageId = 0;
 
-  async ngOnInit() {
-    const data = await this.apiService.getAll();
-    if (data) {
-      this.messages = data;
-    }
-  }
-
-  async ngOnChanges() {
-    const data = await this.apiService.getAll();
-    if (data) {
-      this.messages = data;
-    }
+  ngOnInit() {
+    (this.apiService.getAll()).subscribe({
+      next: (data) => {
+        this.messages = data;
+      },
+      error: (e) => console.log(e),
+    })
   }
 
   setSidebarVisible = () => {

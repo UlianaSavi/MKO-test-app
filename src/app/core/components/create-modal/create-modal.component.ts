@@ -34,8 +34,7 @@ export class CreateModalComponent {
         message: this.createMessageDataForm.controls.message.value || ''
       };
 
-      const newMessage = await this.apiSrvice.create(formsData);
-      console.log(newMessage);
+      await this.apiSrvice.create(formsData);
     }
   }
 }
