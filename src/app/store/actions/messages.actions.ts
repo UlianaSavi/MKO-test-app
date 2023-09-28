@@ -16,4 +16,14 @@ export const setNewMessageAction = createAction(
   props<{ newMessage: IMessage }>()
 );
 
+export const updateMessageAction = createAction(
+  '[EditPopap Component] EditMessage',
+  props<{ updatedMessage: IMessage }>()
+);
+
+export const setUpdatedMessageAction = createAction(
+  '[Table Component] SetUpdatedMessage',
+  props<{ updatedMessage: IMessage }>()
+);
+
 export const loadAllMessagesAction = createAction('[Table Component] loadMessages');

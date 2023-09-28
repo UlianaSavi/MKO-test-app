@@ -43,12 +43,11 @@ export class ApiService {
     return res;
   }
 
-  update = (id: number, dataToUpdate: IMessage) => {
-    const res = this.http.put<IMessage>(`${ApiService.URL}${ApiService.MESSAGES_ROUTE}/${id}`, {
+  update = (dataToUpdate: IMessage) => {
+    const res = this.http.put<IMessage>(`${ApiService.URL}${ApiService.MESSAGES_ROUTE}/${dataToUpdate.id}`, dataToUpdate, {
       headers: {
         'Content-Type': 'application/json',
       },
-      params: {body: dataToUpdate},
       responseType: 'json',
     });
     return res;

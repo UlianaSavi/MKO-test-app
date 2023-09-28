@@ -20,6 +20,15 @@ const _messagesReducer = createReducer(initialState,
       ...state,
       messages: [...state.messages, newMessage]
   })),
+  on(MessagesActions.setUpdatedMessageAction,
+    (state, { updatedMessage }) => {
+      const condidate = state.messages.findIndex((item) => item.id === updatedMessage.id);
+      const messages = [...state.messages];
+      if (condidate !== -1) {
+        messages[condidate] = updatedMessage;
+      }
+      return { ...state, messages };
+    }),
 );
 
 export function messagesReducer(state: IAppState, action: Action) {

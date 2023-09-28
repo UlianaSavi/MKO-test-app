@@ -28,6 +28,17 @@ export class MessagesEffects {
       catchError(() => EMPTY)
     )
   });
+  updateMessage$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(MessagesActions.updateMessageAction),
+      switchMap((action) =>
+        this.apiService
+          .update(action.updatedMessage)
+          .pipe(map((updatedMessage) => MessagesActions.setUpdatedMessageAction({ updatedMessage })))
+      ),
+      catchError(() => EMPTY)
+    )
+  });
 
   constructor(private actions$: Actions, private apiService: ApiService) {}
 }

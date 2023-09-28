@@ -7,6 +7,7 @@ import { IAppState } from 'src/app/store/reducers/messages.reducer';
 import { PanelsOpenService } from '../../serviсes/panelsOpen.service';
 import { IMessage, INewMessageData } from '../../models/message.model';
 import { selectMessages } from 'src/app/store/selectors/messages.selectors';
+import { updateMessageAction } from 'src/app/store/actions/messages.actions';
 
 @Component({
   selector: 'app-edit-modal',
@@ -60,14 +61,21 @@ export class EditModalComponent {
   submitForm = async (e: SubmitEvent) => {
     e.preventDefault();
 
-    if (this.messageDataForm.valid) {
+    if (this.messageDataForm.valid && this.message) {
       this.setEditModalVisible(false);
 
       const formsData = {
-        message: this.messageDataForm.controls.message.value || ''
+        message: this.messageDataForm.controls.message.value || '',
       };
 
-      // this.apiSrvice.create(formsData); TODO: store.dispath edit Action
+      const updated: IMessage = {
+        id: this.message?.id,
+        username: this.message?.username,
+        datetime: this.message?.datetime,
+        message: formsData.message,
+      }
+
+      this.store.dispatch(updateMessageAction({ updatedMessage: updated }))
     }
   }
 
