@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { RouterModule } from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { TableBodyComponent } from './components/table-body/table-body.component';
 import { TableBodyItemComponent } from './components/table-body-item/table-body-item.component';
 import { TableNavComponent } from './components/table-nav/table-nav.component';
 import { TableComponent } from './components/table/table.component';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { RouterModule } from '@angular/router';
 import { CoreModule } from '../core/core.module';
-import { EditModalComponent } from '../core/components/edit-modal/edit-modal.component';
-
+import { messagesReducer } from '../store/reducers/messages.reducer';
+import { MessagesEffects } from '../store/effects/messages.effects';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { EditModalComponent } from '../core/components/edit-modal/edit-modal.com
     CommonModule,
     NgxPaginationModule,
     RouterModule,
-    CoreModule
+    CoreModule,
+    StoreModule.forFeature('messages', messagesReducer),
+    EffectsModule.forFeature([MessagesEffects]),
   ],
   exports: [TableComponent]
 })

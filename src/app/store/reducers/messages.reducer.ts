@@ -1,4 +1,4 @@
-import { Action, State, createReducer, on } from '@ngrx/store';
+import { Action, createReducer, on } from '@ngrx/store';
 import * as MessagesActions from '../actions/messages.actions';
 import { IMessage } from 'src/app/core/models/message.model';
 
@@ -11,10 +11,14 @@ export const initialState: IAppState = {
 };
 
 const _messagesReducer = createReducer(initialState,
-  on(MessagesActions.getAllMessageAction,
-    (state, { messages }) => ({ messages: [...state.messages, ...messages] })),
+  on(MessagesActions.setAllMessagesAction,
+    (state, { messages }) => ({
+      ...state,
+      messages: [...state.messages, ...messages]
+    })),
 );
 
 export function messagesReducer(state: IAppState, action: Action) {
-  return _messagesReducer(state, action);
+  const res = _messagesReducer(state, action);
+  return res;
 }

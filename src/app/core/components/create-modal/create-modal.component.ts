@@ -37,7 +37,7 @@ export class CreateModalComponent {
         message: this.createMessageDataForm.controls.message.value || ''
       };
 
-      await this.apiSrvice.create(formsData);
+      this.apiSrvice.create(formsData);
     }
   }
 }

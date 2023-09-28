@@ -5,5 +5,10 @@
   <li class="table-colums__item">Сообщение</li>
 </ul>
 <div class="table-wrapper">
-  <app-table-body-item *ngFor="let message of messages$ | async as messages" [message]="message" [selectedMessageId]="selectedMessageId" (click)="onSelect(message)"></app-table-body-item>
+  <app-table-body-item
+    *ngFor="let message of messages"
+    [message]="message"
+    [selectedMessageId]="selectedMessageId"
+    (click)="onSelect(message)">
+  </app-table-body-item>
 </div>

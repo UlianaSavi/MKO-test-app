@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { IMessage } from 'src/app/core/models/message.model';
-import { ApiService } from 'src/app/core/serviсes/api.service';
 import { PanelsOpenService } from 'src/app/core/serviсes/panelsOpen.service';
-import { selectMessages } from 'src/app/store/selectors/messages.selector';
+import { loadAllMessagesAction } from 'src/app/store/actions/messages.actions';
+import { selectMessages } from 'src/app/store/selectors/messages.selectors';
 
 @Component({
   selector: 'app-table-body',
@@ -12,22 +12,21 @@ import { selectMessages } from 'src/app/store/selectors/messages.selector';
   styleUrls: ['./table-body.component.scss']
 })
 export class TableBodyComponent {
-  constructor(private apiService: ApiService, private panelsOpenService: PanelsOpenService,
+  constructor(private panelsOpenService: PanelsOpenService,
   private store: Store<{ messages: IMessage[] }>)
   {}
 
-  messages$: Observable<IMessage[]> = this.store.select(selectMessages);
+  messages$: Observable<IMessage[]> = this.store.pipe(select(selectMessages));
+
   messages: IMessage[] = [];
 
   selectedMessageId = 0;
 
   ngOnInit() {
-    (this.apiService.getAll()).subscribe({
-      next: (data) => {
-        this.messages = data;
-      },
-      error: (e) => console.log(e),
-    })
+    this.store.dispatch(loadAllMessagesAction());
+    this.messages$.subscribe(((messages) => {
+      this.messages = messages;
+    }))
   }
 
   setSidebarVisible = () => {
