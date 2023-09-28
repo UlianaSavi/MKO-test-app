@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
 import { TableModule } from './mainPage/table.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [

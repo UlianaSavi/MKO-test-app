@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IMessage } from '../models/message.model';
+import { IMessage, INewMessageData } from '../models/message.model';
 
 @Injectable({
   providedIn: 'root'
@@ -47,14 +47,21 @@ export class ApiService {
     return res;
   }
 
-  create = async (id: number, dataToCreate: IMessage) => {
-    const res = await fetch(`${ApiService.URL}/${id}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ dataToCreate }),
-    });
+  create = async (dataToCreate: INewMessageData) => {
+    let res: IMessage | null = null;
+    try {
+      const data = await fetch(`${ApiService.URL}${ApiService.MESSAGES_ROUTE}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ...dataToCreate }),
+      });
+
+      res = await data.json()
+    } catch (error) {
+      console.log(error);
+    }
 
     return res;
   }

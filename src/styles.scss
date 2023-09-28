@@ -141,3 +141,17 @@ ul {
 
   cursor: pointer;
 }
+
+.error {
+  display: none;
+  position: relative;
+  top: -10px;
+  font-size: 12px;
+  background: #ff000042;
+  padding: 5px;
+  border-radius: 0 0 5px 5px
+}
+
+.error.active {
+  display: block;
+}

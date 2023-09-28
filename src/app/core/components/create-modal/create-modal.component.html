@@ -2,12 +2,12 @@
 <div class="blackout">
   <div class="modal-wrapper create-modal">
     <h3>Создание сообщения</h3>
-    <form class="create-modal__form">
-      <input class="input" type="text" placeholder="Введите имя">
-      <input class="input" type="text" placeholder="Введите текст сообщения">
-      <input class="input" type="date" placeholder="Выберите дату">
+    <form class="create-modal__form" [formGroup]="createMessageDataForm" (submit)="submitForm($event)">
+      <input class="input" type="text" placeholder="Введите имя" formControlName="name">
+      <input class="input" type="text" placeholder="Введите текст сообщения" formControlName="message">
+      <input class="input" type="date" placeholder="Выберите дату" formControlName="date">
       <button type="submit" class="btn btn-blue">Сохранить</button>
-      <a class="cross" (click)="setCreateModalVisible()">
+      <a class="cross" (click)="setCreateModalVisible(false)">
         <img class="img" src="/assets/icons/cross.svg" alt="cross">
       </a>
     </form>
