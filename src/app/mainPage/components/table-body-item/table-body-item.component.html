@@ -1,11 +1,11 @@
 <a [routerLink]="['/messages/' + message?.id]" routerLinkActive="active">
-  <ul [ngClass]="selected ? 'table-item selected' : 'table-item'" (click)="setSidebarVisible()">
+  <ul [ngClass]="selectedMessageId === message?.id ? 'table-item selected' : 'table-item'">
     <li class="table-item__cell">{{ message?.id || '' }}</li>
     <li class="table-item__cell">{{ message?.username || '' }}</li>
     <li class="table-item__cell">{{ message?.datetime || '' }}</li>
     <li class="table-item__cell">{{ message?.message || '' }}</li>
     <li class="table-item__cell">
-      <button class="btn btn-blue btn-delete" (click)="setDeleteModalVisible()">delete</button>
+      <button class="btn btn-blue btn-delete" (click)="setDeleteModalVisible()">Удалить</button>
     </li>
   </ul>
 </a>

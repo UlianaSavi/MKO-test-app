@@ -15,15 +15,11 @@ export class TableBodyItemComponent {
 
   @Input() message: IMessage | null = null;
 
-  selected = false; //TODO: change selected by click
+  @Input() selectedMessageId: number | null = null;
 
   isCreateModalVisible = false;
 
   editModalVisibleSubscription: Subscription | null = null;
-
-  setSidebarVisible = () => {
-    this.panelsOpenService.setSidebarVisibleStatus(true);
-  }
 
   setDeleteModalVisible = () => {
     this.panelsOpenService.setDeleteModalVisibleStatus(true);
