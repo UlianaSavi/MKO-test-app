@@ -26,4 +26,17 @@ export const setUpdatedMessageAction = createAction(
   props<{ updatedMessage: IMessage }>()
 );
 
+
+
+
+export const deleteMessageAction = createAction(
+  '[DeletePopap Component] DeleteMessage',
+  props<{ deletedMessageId: number }>()
+);
+
+export const setDeletedMessageAction = createAction(
+  '[Table Component] SetDeletedMessage',
+  props<{ deletedMessageId: number }>()
+);
+
 export const loadAllMessagesAction = createAction('[Table Component] loadMessages');

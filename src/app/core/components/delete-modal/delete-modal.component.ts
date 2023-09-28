@@ -3,6 +3,9 @@ import { Subscription } from 'rxjs';
 import { PanelsOpenService } from '../../serviсes/panelsOpen.service';
 import { ApiService } from '../../serviсes/api.service';
 import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { IAppState } from 'src/app/store/reducers/messages.reducer';
+import { deleteMessageAction } from 'src/app/store/actions/messages.actions';
 
 @Component({
   selector: 'app-delete-modal',
@@ -12,8 +15,8 @@ import { ActivatedRoute } from '@angular/router';
 export class DeleteModalComponent {
   constructor(
     private panelsOpenService: PanelsOpenService,
-    private apiSrvice: ApiService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private store: Store<IAppState>
   ){}
 
   setDeleteModalVisible = (status: boolean) => {
@@ -32,7 +35,8 @@ export class DeleteModalComponent {
     });
 
     if (this.selectedId > 0) {
-      this.apiSrvice.delete(this.selectedId);
+      // this.apiSrvice.delete(this.selectedId);
+      this.store.dispatch(deleteMessageAction({ deletedMessageId: this.selectedId }))
     }
   }
 

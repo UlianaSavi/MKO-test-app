@@ -54,7 +54,7 @@ export class ApiService {
   }
 
   delete = (id: number) => {
-    const res = this.http.delete(`${ApiService.URL}${ApiService.MESSAGES_ROUTE}/${id}`, {
+    const res = this.http.delete<IMessage>(`${ApiService.URL}${ApiService.MESSAGES_ROUTE}/${id}`, {
       headers: {
         'Content-Type': 'application/json',
       },

@@ -28,7 +28,9 @@ const _messagesReducer = createReducer(initialState,
         messages[condidate] = updatedMessage;
       }
       return { ...state, messages };
-    }),
+  }),
+  on(MessagesActions.setDeletedMessageAction,
+    (state, { deletedMessageId }) => ({ ...state, messages: state.messages.filter((item) => item.id !== +deletedMessageId) })),
 );
 
 export function messagesReducer(state: IAppState, action: Action) {

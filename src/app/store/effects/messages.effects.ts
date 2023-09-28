@@ -39,6 +39,17 @@ export class MessagesEffects {
       catchError(() => EMPTY)
     )
   });
+  deleteMessage$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(MessagesActions.deleteMessageAction),
+      switchMap((action) =>
+        this.apiService
+          .delete(action.deletedMessageId)
+          .pipe(map(() => MessagesActions.setDeletedMessageAction({ deletedMessageId: action.deletedMessageId })))
+      ),
+      catchError(() => EMPTY)
+    )
+  });
 
   constructor(private actions$: Actions, private apiService: ApiService) {}
 }

@@ -11,66 +11,6 @@
       "username": "json-server1",
       "datetime": "1695748296820",
       "message": "messagemessagemessagemessage messagemessage messagemessage"
-    },
-    {
-      "id": 3,
-      "username": "json-server-2",
-      "datetime": "1695748296820",
-      "message": "messagemessagemessagemessage messagemessage messagemessage"
-    },
-    {
-      "id": 4,
-      "username": "json-server-4",
-      "datetime": "1695748296820",
-      "message": "messagemessagemessagemessage messagemessage messagemessage"
-    },
-    {
-      "id": 5,
-      "username": "json-server-5",
-      "datetime": "1695748296820",
-      "message": "messagemessagemessagemessage messagemessage messagemessage"
-    },
-    {
-      "id": 6,
-      "username": "json-server-6",
-      "datetime": "1695748296820",
-      "message": "messagemessagemes"
-    },
-    {
-      "id": 7,
-      "username": "json-server-7",
-      "datetime": "1695748296820",
-      "message": "messagsage"
-    },
-    {
-      "username": "asdasd",
-      "datetime": "2023-09-09",
-      "message": "asa",
-      "id": 8
-    },
-    {
-      "username": "asdasd",
-      "datetime": "2023-09-02",
-      "message": "asdasd",
-      "id": 9
-    },
-    {
-      "username": "это новое",
-      "datetime": "2023-08-30",
-      "message": "сообщение",
-      "id": 10
-    },
-    {
-      "username": "фывфыв",
-      "datetime": "2023-09-02",
-      "message": "фывфыв",
-      "id": 11
-    },
-    {
-      "id": 12,
-      "username": "фывфыв",
-      "datetime": "2023-09-08",
-      "message": "asdasd"
     }
   ]
 }
