@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
 import { TableModule } from './mainPage/table.module';
-import { FormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { messagesReducer } from './store/reducers/messages.reducer';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     TableModule,
     CoreModule,
+    StoreModule.forRoot(messagesReducer)
   ],
   providers: [],
   bootstrap: [AppComponent]

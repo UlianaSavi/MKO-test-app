@@ -10,7 +10,10 @@ import { INewMessageData } from '../../models/message.model';
   styleUrls: ['./create-modal.component.scss']
 })
 export class CreateModalComponent {
-  constructor(private panelsOpenService: PanelsOpenService, private apiSrvice: ApiService){}
+  constructor(
+    private panelsOpenService: PanelsOpenService,
+    private apiSrvice: ApiService)
+  {}
 
   createMessageDataForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
