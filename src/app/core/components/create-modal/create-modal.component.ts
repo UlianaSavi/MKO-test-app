@@ -3,6 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PanelsOpenService } from '../../serviсes/panelsOpen.service';
 import { ApiService } from '../../serviсes/api.service';
 import { INewMessageData } from '../../models/message.model';
+import { IAppState } from 'src/app/store/reducers/messages.reducer';
+import { Store } from '@ngrx/store';
+import { createMessageAction } from 'src/app/store/actions/messages.actions';
 
 @Component({
   selector: 'app-create-modal',
@@ -12,7 +15,7 @@ import { INewMessageData } from '../../models/message.model';
 export class CreateModalComponent {
   constructor(
     private panelsOpenService: PanelsOpenService,
-    private apiSrvice: ApiService)
+    private store: Store<IAppState>)
   {}
 
   createMessageDataForm = new FormGroup({
@@ -37,7 +40,7 @@ export class CreateModalComponent {
         message: this.createMessageDataForm.controls.message.value || ''
       };
 
-      this.apiSrvice.create(formsData);
+      this.store.dispatch(createMessageAction({ newMessage: formsData }))
     }
   }
 }

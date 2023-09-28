@@ -1,12 +1,10 @@
 <div class="blackout">
   <div class="modal-wrapper edit-modal">
     <h3>Редактирование сообщения</h3>
-    <form class="edit-modal__form">
-      <input class="input" type="text" placeholder="Введите новое имя">
-      <input class="input" type="text" placeholder="Введите новый текст сообщения">
-      <input class="input" type="date" placeholder="Выберите новую дату">
+    <form class="edit-modal__form" [formGroup]="messageDataForm" (submit)="submitForm($event)">
+      <input class="input" type="text" placeholder="Введите текст сообщения" formControlName="message">
       <button type="submit" class="btn btn-blue">Сохранить</button>
-      <a class="cross" (click)="setEditModalVisible()">
+      <a class="cross" (click)="setEditModalVisible(false)">
         <img class="img" src="/assets/icons/cross.svg" alt="cross">
       </a>
     </form>

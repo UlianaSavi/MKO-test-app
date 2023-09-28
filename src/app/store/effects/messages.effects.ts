@@ -14,8 +14,19 @@ export class MessagesEffects {
           .getAll()
           .pipe(map((messages) => MessagesActions.setAllMessagesAction({ messages })))
       ),
-      catchError(() => EMPTY)
+      catchError(() => EMPTY),
     );
+  });
+  createNewMessage$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(MessagesActions.createMessageAction),
+      switchMap((action) =>
+        this.apiService
+          .create(action.newMessage)
+          .pipe(map((newMessage) => MessagesActions.setNewMessageAction({ newMessage })))
+      ),
+      catchError(() => EMPTY)
+    )
   });
 
   constructor(private actions$: Actions, private apiService: ApiService) {}

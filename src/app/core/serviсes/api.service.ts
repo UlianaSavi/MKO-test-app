@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IMessage, INewMessageData } from '../models/message.model';
+import { INewMessageResponse } from '../models/newMessageResponse.model';
 
 @Injectable({
   providedIn: 'root'
@@ -33,11 +34,10 @@ export class ApiService {
   }
 
   create = (dataToCreate: INewMessageData) => {
-    const res = this.http.post<IMessage>(`${ApiService.URL}${ApiService.MESSAGES_ROUTE}`, {
+    const res = this.http.post<IMessage>(`${ApiService.URL}${ApiService.MESSAGES_ROUTE}`, dataToCreate, {
       headers: {
         'Content-Type': 'application/json',
       },
-      params: {body: dataToCreate},
       responseType: 'json',
     });
     return res;
