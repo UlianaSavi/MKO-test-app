@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+import { Subscription, Observable } from 'rxjs';
 import { IMessage } from 'src/app/core/models/message.model';
-import { ApiService } from 'src/app/core/serviсes/api.service';
 import { PanelsOpenService } from 'src/app/core/serviсes/panelsOpen.service';
+import { IAppState } from 'src/app/store/reducers/messages.reducer';
+import { selectMessages } from 'src/app/store/selectors/messages.selectors';
 
 @Component({
   selector: 'app-sidebar',
@@ -13,13 +15,15 @@ import { PanelsOpenService } from 'src/app/core/serviсes/panelsOpen.service';
 export class SidebarComponent {
   constructor(
     private panelsOpenService: PanelsOpenService,
-    private apiService: ApiService,
     private route: ActivatedRoute,
+    private store: Store<IAppState>
   ) {}
 
   routeSubscription: Subscription | null = null;
 
   isSidebarVisible = true;
+
+  messages$: Observable<IMessage[]> = this.store.pipe(select(selectMessages));
 
   message: IMessage | null = null;
 
@@ -40,15 +44,16 @@ export class SidebarComponent {
       this.selectedId = params['id'] || 0;
 
       if (this.selectedId !== 0) {
-        const res = this.apiService.getById(this.selectedId);
-        if (res) {
-          res.subscribe((data) => this.message = data)
-        }
+        this.messages$.subscribe(((messages) => {
+          const selected = messages.find((message) => message.id === +this.selectedId) || null;
+          this.message = selected;
+        }));
       }
       if (this.selectedId === 0) {
         this.showemptyMessage = true;
       }
     });
+
   }
 
   setSidebarVisible = () => {
@@ -61,6 +66,6 @@ export class SidebarComponent {
 
   ngOnDestroy() {
     this.routeSubscription?.unsubscribe();
-    this.sidebarStatusSubscription?.unsubscribe();
+    this.sidebarStatusSubscription?.unsubscribe()
   }
 }

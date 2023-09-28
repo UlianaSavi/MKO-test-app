@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { IMessage } from 'src/app/core/models/message.model';
 import { PanelsOpenService } from 'src/app/core/serviсes/panelsOpen.service';
 import { loadAllMessagesAction } from 'src/app/store/actions/messages.actions';
+import { IAppState } from 'src/app/store/reducers/messages.reducer';
 import { selectMessages } from 'src/app/store/selectors/messages.selectors';
 
 @Component({
@@ -13,7 +14,7 @@ import { selectMessages } from 'src/app/store/selectors/messages.selectors';
 })
 export class TableBodyComponent {
   constructor(private panelsOpenService: PanelsOpenService,
-  private store: Store<{ messages: IMessage[] }>)
+  private store: Store<IAppState>)
   {}
 
   messages$: Observable<IMessage[]> = this.store.pipe(select(selectMessages));
@@ -26,7 +27,7 @@ export class TableBodyComponent {
     this.store.dispatch(loadAllMessagesAction());
     this.messages$.subscribe(((messages) => {
       this.messages = messages;
-    }))
+    }));
   }
 
   setSidebarVisible = () => {

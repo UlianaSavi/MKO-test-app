@@ -15,7 +15,7 @@ const _messagesReducer = createReducer(initialState,
     (state, { messages }) => ({
       ...state,
       messages: [...state.messages, ...messages]
-    })),
+  }))
 );
 
 export function messagesReducer(state: IAppState, action: Action) {
