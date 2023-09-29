@@ -50,6 +50,12 @@
   }
 }
 
+.pagination ::ng-deep .ngx-pagination a:hover, .ngx-pagination button:hover {
+  padding: 5px 10px;
+
+  border-radius: 5px;
+}
+
 .pagination ::ng-deep .ngx-pagination .current {
   padding: 5px 10px;
 
