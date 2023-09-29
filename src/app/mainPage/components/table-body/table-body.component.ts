@@ -23,6 +23,10 @@ export class TableBodyComponent {
 
   selectedMessageId = 0;
 
+  currentPage: number = 1;
+
+  collection = this.messages;
+
   ngOnInit() {
     this.store.dispatch(loadAllMessagesAction());
     this.messages$.subscribe(((messages) => {
@@ -34,9 +38,12 @@ export class TableBodyComponent {
     this.panelsOpenService.setSidebarVisibleStatus(true);
   }
 
-  onSelect(message: IMessage | null) {
+  onSelect = (message: IMessage | null) => {
     this.setSidebarVisible();
-
     this.selectedMessageId = message?.id || 0;
+  }
+
+  onPageChange = (e: number) => {
+    this.currentPage = e;
   }
 }

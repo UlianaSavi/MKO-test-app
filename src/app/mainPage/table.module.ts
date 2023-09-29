@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { TableBodyComponent } from './components/table-body/table-body.component';
 import { TableBodyItemComponent } from './components/table-body-item/table-body-item.component';
-import { TableNavComponent } from './components/table-nav/table-nav.component';
 import { TableComponent } from './components/table/table.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CoreModule } from '../core/core.module';
@@ -18,7 +17,6 @@ import { MessagesEffects } from '../store/effects/messages.effects';
   declarations: [
     TableBodyComponent,
     TableBodyItemComponent,
-    TableNavComponent,
     TableComponent,
     SidebarComponent
   ],

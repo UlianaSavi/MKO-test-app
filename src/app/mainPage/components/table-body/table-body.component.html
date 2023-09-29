@@ -6,9 +6,12 @@
 </ul>
 <div class="table-wrapper">
   <app-table-body-item
-    *ngFor="let message of messages"
+    *ngFor="let message of messages | paginate: {
+    itemsPerPage: 2,
+    currentPage: currentPage }"
     [message]="message"
     [selectedMessageId]="selectedMessageId"
     (click)="onSelect(message)">
   </app-table-body-item>
+  <pagination-controls pagination-controls class="pagination" (pageChange)="onPageChange($event)"></pagination-controls>
 </div>
