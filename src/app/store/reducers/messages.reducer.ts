@@ -3,7 +3,8 @@ import * as MessagesActions from '../actions/messages.actions';
 import { IMessage } from 'src/app/core/models/message.model';
 
 export interface IAppState {
-  messages: IMessage[] | [];
+  messages: IMessage[] | [],
+  searchStr?: string,
 }
 
 export const initialState: IAppState = {
@@ -32,7 +33,7 @@ const _messagesReducer = createReducer(initialState,
   on(MessagesActions.setDeletedMessageAction,
     (state, { deletedMessageId }) => ({ ...state, messages: state.messages.filter((item) => item.id !== +deletedMessageId) })),
   on(MessagesActions.setMessagesAfterSearchAction,
-    (state, { messagesAfterSearch }) => ({ ...state, messages: messagesAfterSearch })),
+    (state, { messagesAfterSearch, searchStr }) => ({ ...state, messages: messagesAfterSearch, searchStr: searchStr })),
 );
 
 export function messagesReducer(state: IAppState, action: Action) {

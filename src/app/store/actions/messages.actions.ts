@@ -38,12 +38,12 @@ export const setDeletedMessageAction = createAction(
 
 export const searchAction = createAction(
   '[Search Component] searchAction',
-  props<{ search: string }>()
+  props<{ searchStr: string }>()
 );
 
 export const setMessagesAfterSearchAction = createAction(
   '[Table Component] setMessagesAfterSearch',
-  props<{ messagesAfterSearch: IMessage[] }>()
+  props<{ messagesAfterSearch: IMessage[], searchStr: string }>()
 );
 
 export const loadAllMessagesAction = createAction('[Table Component] loadMessages');

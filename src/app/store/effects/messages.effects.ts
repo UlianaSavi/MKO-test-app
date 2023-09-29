@@ -55,8 +55,8 @@ export class MessagesEffects {
       ofType(MessagesActions.searchAction),
       switchMap((action) =>
         this.apiService
-          .search(action.search)
-          .pipe(map((messages) => MessagesActions.setMessagesAfterSearchAction({ messagesAfterSearch: messages })))
+          .search(action.searchStr)
+          .pipe(map((messages) => MessagesActions.setMessagesAfterSearchAction({ messagesAfterSearch: messages, searchStr: action.searchStr })))
       ),
       catchError(() => EMPTY)
     )

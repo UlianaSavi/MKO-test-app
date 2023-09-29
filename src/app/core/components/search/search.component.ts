@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
 import { searchAction } from 'src/app/store/actions/messages.actions';
 import { IAppState } from 'src/app/store/reducers/messages.reducer';
 
@@ -16,8 +17,13 @@ export class SearchComponent {
     search: new FormControl('', [Validators.required]),
   });
 
-  search = () => {
-    const strToSearch = this.searchForm.controls.search.value;
-    this.store.dispatch(searchAction({ search: strToSearch || '' }))
+  ngOnInit() {
+    this.searchForm.valueChanges.pipe(debounceTime(200), distinctUntilChanged()).subscribe(((str) => {
+      this.search(str.search || '');
+    }));
+  }
+
+  search = (str: string) => {
+    this.store.dispatch(searchAction({ searchStr: str }))
   }
 }

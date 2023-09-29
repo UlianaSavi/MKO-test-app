@@ -28,6 +28,7 @@ import { HighlightTextPipe } from './pipes/highligthText';
     RouterModule,
     CoreModule,
     StoreModule.forFeature('messages', messagesReducer),
+    StoreModule.forFeature('searchStr', messagesReducer),
     EffectsModule.forFeature([MessagesEffects]),
   ],
   exports: [TableComponent]
