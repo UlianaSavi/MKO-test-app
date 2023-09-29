@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IMessage, INewMessageData } from '../models/message.model';
-import { INewMessageResponse } from '../models/newMessageResponse.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -60,5 +60,30 @@ export class ApiService {
       },
     });
     return res;
+  }
+
+  search = (searchStr: string) => {
+    if (searchStr.match(/\\/)) {
+      return this.http.get<IMessage[]>(`${ApiService.URL}${ApiService.MESSAGES_ROUTE}?message_like=${/\//}`, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        responseType: 'json',
+      });
+    }
+    if (!searchStr.length) {
+      return this.http.get<IMessage[]>(`${ApiService.URL}${ApiService.MESSAGES_ROUTE}`, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        responseType: 'json',
+      });
+    }
+    return this.http.get<IMessage[]>(`${ApiService.URL}${ApiService.MESSAGES_ROUTE}?message_like=${searchStr}`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      responseType: 'json',
+    });
   }
 }

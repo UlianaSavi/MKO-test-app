@@ -156,6 +156,10 @@ ul {
   display: block;
 }
 
+.highlight {
+  background: $highlite;
+}
+
 @media (max-width: 375px) {
   .container {
     padding: .2em;

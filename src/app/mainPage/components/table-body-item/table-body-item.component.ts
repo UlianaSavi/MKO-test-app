@@ -19,6 +19,8 @@ export class TableBodyItemComponent {
 
   isCreateModalVisible = false;
 
+  searchStr = '';
+
   editModalVisibleSubscription: Subscription | null = null;
 
   setDeleteModalVisible = () => {

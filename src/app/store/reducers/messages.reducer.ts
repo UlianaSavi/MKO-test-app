@@ -31,6 +31,8 @@ const _messagesReducer = createReducer(initialState,
   }),
   on(MessagesActions.setDeletedMessageAction,
     (state, { deletedMessageId }) => ({ ...state, messages: state.messages.filter((item) => item.id !== +deletedMessageId) })),
+  on(MessagesActions.setMessagesAfterSearchAction,
+    (state, { messagesAfterSearch }) => ({ ...state, messages: messagesAfterSearch })),
 );
 
 export function messagesReducer(state: IAppState, action: Action) {

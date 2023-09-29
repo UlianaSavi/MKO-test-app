@@ -50,6 +50,17 @@ export class MessagesEffects {
       catchError(() => EMPTY)
     )
   });
+  searchMessages$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(MessagesActions.searchAction),
+      switchMap((action) =>
+        this.apiService
+          .search(action.search)
+          .pipe(map((messages) => MessagesActions.setMessagesAfterSearchAction({ messagesAfterSearch: messages })))
+      ),
+      catchError(() => EMPTY)
+    )
+  });
 
   constructor(private actions$: Actions, private apiService: ApiService) {}
 }

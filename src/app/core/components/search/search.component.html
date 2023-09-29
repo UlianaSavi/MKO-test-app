@@ -1,1 +1,3 @@
-<input type="text" class="search-input" placeholder="Поиск...">
+<form action="" [formGroup]="searchForm">
+  <input type="text" class="search-input" placeholder="Поиск..." formControlName="search" (input)="search()">
+</form>

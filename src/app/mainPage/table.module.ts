@@ -11,6 +11,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CoreModule } from '../core/core.module';
 import { messagesReducer } from '../store/reducers/messages.reducer';
 import { MessagesEffects } from '../store/effects/messages.effects';
+import { HighlightTextPipe } from './pipes/highligthText';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { MessagesEffects } from '../store/effects/messages.effects';
     TableBodyComponent,
     TableBodyItemComponent,
     TableComponent,
-    SidebarComponent
+    SidebarComponent,
+    HighlightTextPipe
   ],
   imports: [
     CommonModule,
