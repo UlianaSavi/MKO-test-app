@@ -18,6 +18,12 @@ git switch develop
 ## Запуск приложения и json сервера:
 
 ```
-npm run start
+npm i
 ```
 
+```
+npm run start
+```
+### URLS:
+`http://localhost:3000/` - Server
+`http://localhost:4200/` - Angular app
