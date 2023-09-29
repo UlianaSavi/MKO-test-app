@@ -42,8 +42,4 @@ export class TableBodyComponent {
     this.setSidebarVisible();
     this.selectedMessageId = message?.id || 0;
   }
-
-  onPageChange = (e: number) => {
-    this.currentPage = e;
-  }
 }

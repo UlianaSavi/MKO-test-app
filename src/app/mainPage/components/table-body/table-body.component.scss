@@ -2,7 +2,7 @@
 
 :host {
   display: block;
-  height: 80vh;
+  height: 100vh;
 
   overflow: hidden;
 }
@@ -22,6 +22,11 @@
     max-width: 150px;
   }
 
+  &__item:first-child {
+    width: 100%;
+    max-width: 30px;
+  }
+
   &__item:last-child {
     width: 100%;
     max-width: 100%;
@@ -36,11 +41,20 @@
 
 .pagination ::ng-deep .ngx-pagination {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  position: relative;
+  bottom: 35px;
 
   li {
     margin: 0 20px;
   }
+}
+
+.pagination ::ng-deep .ngx-pagination .current {
+  padding: 5px 10px;
+
+  background: $btn-blue;
+  border-radius: 50%;
 }
 
 .pagination ::ng-deep .ngx-pagination::before,
@@ -62,7 +76,18 @@
   .pagination ::ng-deep nav {
     position: relative;
     top: -35px;
-    background: white;
+    background: $white-background;
   }
 
+  .pagination ::ng-deep .ngx-pagination {
+    position: relative;
+    bottom: 25px;
+    max-height: 30px;
+    align-items: center;
+    justify-content: space-between;
+
+    li {
+      margin: 0;
+    }
+  }
 }
