@@ -28,7 +28,7 @@ export class DeleteModalComponent {
 
   selectedId = 0;
 
-  delete = async () => {
+  delete = () => {
     this.setDeleteModalVisible(false);
 
     this.routeSubscription = this.route.params.subscribe((params) => {

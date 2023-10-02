@@ -28,7 +28,7 @@ export class CreateModalComponent {
     this.panelsOpenService.setCreateModalVisibleStatus(status);
   }
 
-  submitForm = async (e: SubmitEvent) => {
+  submitForm = (e: SubmitEvent) => {
     e.preventDefault();
 
     if (this.createMessageDataForm.valid) {

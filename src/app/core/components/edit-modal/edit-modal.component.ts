@@ -58,7 +58,7 @@ export class EditModalComponent {
     });
   }
 
-  submitForm = async (e: SubmitEvent) => {
+  submitForm = (e: SubmitEvent) => {
     e.preventDefault();
 
     if (this.messageDataForm.valid && this.message) {

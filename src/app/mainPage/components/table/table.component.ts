@@ -22,7 +22,7 @@ export class TableComponent {
 
   deleteModalVisibleSubscription: Subscription | null = null;
 
-  async ngOnInit() {
+  ngOnInit() {
     this.editModalVisibleSubscription = this.panelsOpenService.isEditModalVisible$.subscribe(
       (status) => (this.isEditModalVisible = status)
     );
