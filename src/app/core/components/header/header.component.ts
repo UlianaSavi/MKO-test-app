@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { PanelsOpenService } from '../../serviсes/panelsOpen.service';
+import { PanelsVisibleService } from '../../serviсes/PanelsVisible.service';
+import { ComponentNames } from '../../models/componentsNames.model';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,9 @@ import { PanelsOpenService } from '../../serviсes/panelsOpen.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  constructor(private panelsOpenService: PanelsOpenService) {}
+  constructor(private panelsVisibleService: PanelsVisibleService) {}
 
   setCreateModalVisible = () => {
-    this.panelsOpenService.setCreateModalVisibleStatus(true);
+    this.panelsVisibleService.setVisibleStatus(true, ComponentNames.CreateModalComponent);
   }
 }

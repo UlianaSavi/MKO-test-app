@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { PanelsOpenService } from '../../serviсes/panelsOpen.service';
-import { ApiService } from '../../serviсes/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { IAppState } from 'src/app/store/reducers/messages.reducer';
 import { deleteMessageAction } from 'src/app/store/actions/messages.actions';
+import { PanelsVisibleService } from '../../serviсes/PanelsVisible.service';
+import { ComponentNames } from '../../models/componentsNames.model';
 
 @Component({
   selector: 'app-delete-modal',
@@ -14,14 +14,14 @@ import { deleteMessageAction } from 'src/app/store/actions/messages.actions';
 })
 export class DeleteModalComponent {
   constructor(
-    private panelsOpenService: PanelsOpenService,
+    private panelsVisibleService: PanelsVisibleService,
     private route: ActivatedRoute,
     private store: Store<IAppState>,
     private router: Router,
   ){}
 
   setDeleteModalVisible = (status: boolean) => {
-    this.panelsOpenService.setDeleteModalVisibleStatus(status);
+    this.panelsVisibleService.setVisibleStatus(status, ComponentNames.DeleteModalComponent);
   }
 
   routeSubscription: Subscription | null = null;

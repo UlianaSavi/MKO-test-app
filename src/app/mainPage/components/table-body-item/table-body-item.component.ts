@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { Subscription, Observable, debounceTime, distinctUntilChanged } from 'rxjs';
+import { Observable, debounceTime, distinctUntilChanged } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { selectSearchStr } from 'src/app/store/selectors/messages.selectors';
-import { PanelsOpenService } from 'src/app/core/serviсes/panelsOpen.service';
 import { IMessage } from 'src/app/core/models/message.model';
 import { IAppState } from 'src/app/store/reducers/messages.reducer';
+import { PanelsVisibleService } from 'src/app/core/serviсes/PanelsVisible.service';
+import { ComponentNames } from 'src/app/core/models/componentsNames.model';
 
 @Component({
   selector: 'app-table-body-item',
@@ -13,7 +14,7 @@ import { IAppState } from 'src/app/store/reducers/messages.reducer';
 })
 export class TableBodyItemComponent {
   constructor(
-    private panelsOpenService: PanelsOpenService,
+    private panelsVisibleService: PanelsVisibleService,
     private store: Store<IAppState>,
   ) {}
 
@@ -21,13 +22,9 @@ export class TableBodyItemComponent {
 
   @Input() selectedMessageId: number | null = null;
 
-  isCreateModalVisible = false;
-
   searchStr$: Observable<string> = this.store.pipe(select(selectSearchStr));
 
   searchStr = '';
-
-  editModalVisibleSubscription: Subscription | null = null;
 
   ngOnInit() {
     this.searchStr$.subscribe(((str) => {
@@ -36,6 +33,6 @@ export class TableBodyItemComponent {
   }
 
   setDeleteModalVisible = () => {
-    this.panelsOpenService.setDeleteModalVisibleStatus(true);
+    this.panelsVisibleService.setVisibleStatus(true, ComponentNames.DeleteModalComponent);
   }
 }

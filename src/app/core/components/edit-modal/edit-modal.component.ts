@@ -4,10 +4,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { Subscription, Observable } from 'rxjs';
 import { IAppState } from 'src/app/store/reducers/messages.reducer';
-import { PanelsOpenService } from '../../serviсes/panelsOpen.service';
-import { IMessage, INewMessageData } from '../../models/message.model';
+import { IMessage } from '../../models/message.model';
 import { selectMessages } from 'src/app/store/selectors/messages.selectors';
 import { updateMessageAction } from 'src/app/store/actions/messages.actions';
+import { PanelsVisibleService } from '../../serviсes/PanelsVisible.service';
 
 @Component({
   selector: 'app-edit-modal',
@@ -16,7 +16,7 @@ import { updateMessageAction } from 'src/app/store/actions/messages.actions';
 })
 export class EditModalComponent {
   constructor(
-    private panelsOpenService: PanelsOpenService,
+    private panelsVisibleService: PanelsVisibleService,
     private route: ActivatedRoute,
     private store: Store<IAppState>
   ) {}
@@ -34,7 +34,7 @@ export class EditModalComponent {
   });
 
   setEditModalVisible = (status: boolean) => {
-    this.panelsOpenService.setEditModalVisibleStatus(status);
+    this.panelsVisibleService.setVisibleStatus(status, EditModalComponent.name);
   }
 
   messageDataForm = new FormGroup({

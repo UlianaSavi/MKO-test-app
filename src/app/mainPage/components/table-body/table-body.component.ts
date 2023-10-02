@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { ComponentNames } from 'src/app/core/models/componentsNames.model';
 import { IMessage } from 'src/app/core/models/message.model';
-import { PanelsOpenService } from 'src/app/core/serviсes/panelsOpen.service';
+import { PanelsVisibleService } from 'src/app/core/serviсes/PanelsVisible.service';
 import { loadAllMessagesAction } from 'src/app/store/actions/messages.actions';
 import { IAppState } from 'src/app/store/reducers/messages.reducer';
 import { selectMessages } from 'src/app/store/selectors/messages.selectors';
@@ -13,7 +14,7 @@ import { selectMessages } from 'src/app/store/selectors/messages.selectors';
   styleUrls: ['./table-body.component.scss']
 })
 export class TableBodyComponent {
-  constructor(private panelsOpenService: PanelsOpenService,
+  constructor(private panelsVisibleService: PanelsVisibleService,
   private store: Store<IAppState>)
   {}
 
@@ -35,7 +36,7 @@ export class TableBodyComponent {
   }
 
   setSidebarVisible = () => {
-    this.panelsOpenService.setSidebarVisibleStatus(true);
+    this.panelsVisibleService.setVisibleStatus(true, ComponentNames.SidebarComponent);
   }
 
   onSelect = (message: IMessage | null) => {

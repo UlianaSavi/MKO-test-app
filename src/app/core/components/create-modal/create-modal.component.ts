@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { PanelsOpenService } from '../../serviсes/panelsOpen.service';
-import { ApiService } from '../../serviсes/api.service';
 import { INewMessageData } from '../../models/message.model';
 import { IAppState } from 'src/app/store/reducers/messages.reducer';
 import { Store } from '@ngrx/store';
 import { createMessageAction } from 'src/app/store/actions/messages.actions';
+import { PanelsVisibleService } from '../../serviсes/PanelsVisible.service';
+import { ComponentNames } from '../../models/componentsNames.model';
 
 @Component({
   selector: 'app-create-modal',
@@ -14,7 +14,7 @@ import { createMessageAction } from 'src/app/store/actions/messages.actions';
 })
 export class CreateModalComponent {
   constructor(
-    private panelsOpenService: PanelsOpenService,
+    private panelsVisibleService: PanelsVisibleService,
     private store: Store<IAppState>)
   {}
 
@@ -25,7 +25,7 @@ export class CreateModalComponent {
   });
 
   setCreateModalVisible = (status: boolean) => {
-    this.panelsOpenService.setCreateModalVisibleStatus(status);
+    this.panelsVisibleService.setVisibleStatus(status, ComponentNames.CreateModalComponent)
   }
 
   submitForm = (e: SubmitEvent) => {

@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { Subscription, Observable } from 'rxjs';
+import { ComponentNames } from 'src/app/core/models/componentsNames.model';
 import { IMessage } from 'src/app/core/models/message.model';
-import { PanelsOpenService } from 'src/app/core/serviсes/panelsOpen.service';
+import { PanelsVisibleService } from 'src/app/core/serviсes/PanelsVisible.service';
 import { IAppState } from 'src/app/store/reducers/messages.reducer';
 import { selectMessages } from 'src/app/store/selectors/messages.selectors';
 
@@ -14,7 +15,7 @@ import { selectMessages } from 'src/app/store/selectors/messages.selectors';
 })
 export class SidebarComponent {
   constructor(
-    private panelsOpenService: PanelsOpenService,
+    private panelsVisibleService: PanelsVisibleService,
     private route: ActivatedRoute,
     private store: Store<IAppState>
   ) {}
@@ -36,8 +37,12 @@ export class SidebarComponent {
   sidebarStatusSubscription: Subscription | null = null;
 
   ngOnInit() {
-    this.sidebarStatusSubscription = this.panelsOpenService.isSidebarVisible$.subscribe(
-      (status) => (this.isSidebarVisible = status)
+    this.sidebarStatusSubscription = this.panelsVisibleService.viewPanel$.subscribe(
+      (data) => {
+        if (data.context === ComponentNames.SidebarComponent) {
+          this.isSidebarVisible = data.status;
+        }
+      }
     );
 
     this.routeSubscription = this.route.params.subscribe((params) => {
@@ -57,11 +62,11 @@ export class SidebarComponent {
   }
 
   setSidebarVisible = () => {
-    this.panelsOpenService.setSidebarVisibleStatus(false);
+    this.panelsVisibleService.setVisibleStatus(false, ComponentNames.SidebarComponent);
   }
 
   showEditModal = () => {
-    this.panelsOpenService.setEditModalVisibleStatus(true);
+    this.panelsVisibleService.setVisibleStatus(true, ComponentNames.EditModalComponent);
   }
 
   ngOnDestroy() {

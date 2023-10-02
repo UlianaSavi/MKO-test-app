@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { PanelsOpenService } from 'src/app/core/serviсes/panelsOpen.service';
+import { ComponentNames } from 'src/app/core/models/componentsNames.model';
+import { PanelsVisibleService } from 'src/app/core/serviсes/PanelsVisible.service';
 
 @Component({
   selector: 'app-table',
@@ -8,7 +9,7 @@ import { PanelsOpenService } from 'src/app/core/serviсes/panelsOpen.service';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent {
-  constructor(private panelsOpenService: PanelsOpenService) {}
+  constructor(private panelsVisibleService: PanelsVisibleService) {}
 
   isEditModalVisible = false;
 
@@ -16,26 +17,25 @@ export class TableComponent {
 
   isDeleteModalVisible = false;
 
-  editModalVisibleSubscription: Subscription | null = null;
-
-  createModalVisibleSubscription: Subscription | null = null;
-
-  deleteModalVisibleSubscription: Subscription | null = null;
+  visibleSubscription: Subscription | null = null;
 
   ngOnInit() {
-    this.editModalVisibleSubscription = this.panelsOpenService.isEditModalVisible$.subscribe(
-      (status) => (this.isEditModalVisible = status)
-    );
-    this.createModalVisibleSubscription = this.panelsOpenService.isCreateModalVisible$.subscribe(
-      (status) => (this.isCreateModalVisible = status)
-    );
-    this.deleteModalVisibleSubscription = this.panelsOpenService.isDeleteModalVisible$.subscribe(
-      (status) => (this.isDeleteModalVisible = status)
-    );
+    this.visibleSubscription = this.panelsVisibleService.viewPanel$.subscribe(
+      (data) => {
+        if (data.context === ComponentNames.EditModalComponent) {
+          this.isEditModalVisible = data.status;
+        }
+        if (data.context === ComponentNames.CreateModalComponent) {
+          this.isCreateModalVisible = data.status;
+        }
+        if (data.context === ComponentNames.DeleteModalComponent) {
+          this.isDeleteModalVisible = data.status;
+        }
+      }
+    )
   }
 
   ngOnDestroy() {
-    this.editModalVisibleSubscription?.unsubscribe();
-    this.createModalVisibleSubscription?.unsubscribe();
+    this.visibleSubscription?.unsubscribe();
   }
 }
