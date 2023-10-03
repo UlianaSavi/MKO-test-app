@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { selectSearchStr } from 'src/app/store/selectors/messages.selectors';
 import { IAppState } from 'src/app/store/reducers/messages.reducer';
-import { PanelsVisibleService } from 'src/app/core/serviсes/panelsVisible.service';
+import { PanelsVisibleService } from 'src/app/core/serviсes/panels-visible.service';
 import { ComponentNames } from 'src/app/core/models/components-names.model';
 import { KeyValue } from '@angular/common';
 import { ITableBodyItemData } from '../../models/table-body-item-data.model';

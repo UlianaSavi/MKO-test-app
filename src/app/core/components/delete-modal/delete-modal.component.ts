@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { IAppState } from 'src/app/store/reducers/messages.reducer';
 import { deleteMessageAction } from 'src/app/store/actions/messages.actions';
-import { PanelsVisibleService } from '../../serviсes/panelsVisible.service';
+import { PanelsVisibleService } from '../../serviсes/panels-visible.service';
 import { ComponentNames } from '../../models/components-names.model';
 
 @Component({

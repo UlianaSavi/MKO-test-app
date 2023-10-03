@@ -4,7 +4,7 @@ import { INewMessageData } from '../../models/message.model';
 import { IAppState } from 'src/app/store/reducers/messages.reducer';
 import { Store } from '@ngrx/store';
 import { createMessageAction } from 'src/app/store/actions/messages.actions';
-import { PanelsVisibleService } from '../../serviсes/panelsVisible.service';
+import { PanelsVisibleService } from '../../serviсes/panels-visible.service';
 import { ComponentNames } from '../../models/components-names.model';
 
 @Component({

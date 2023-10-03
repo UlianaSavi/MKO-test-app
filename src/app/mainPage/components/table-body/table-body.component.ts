@@ -5,7 +5,7 @@ import { ComponentNames } from 'src/app/core/models/components-names.model';
 import { IMessage } from 'src/app/core/models/message.model';
 import { Icolumn } from 'src/app/core/models/table-config.model';
 import { ApiService } from 'src/app/core/serviсes/api.service';
-import { PanelsVisibleService } from 'src/app/core/serviсes/panelsVisible.service';
+import { PanelsVisibleService } from 'src/app/core/serviсes/panels-visible.service';
 import { loadAllMessagesAction } from 'src/app/store/actions/messages.actions';
 import { IAppState } from 'src/app/store/reducers/messages.reducer';
 import { selectMessages } from 'src/app/store/selectors/messages.selectors';

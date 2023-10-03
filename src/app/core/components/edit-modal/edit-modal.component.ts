@@ -7,7 +7,7 @@ import { IAppState } from 'src/app/store/reducers/messages.reducer';
 import { IMessage } from '../../models/message.model';
 import { selectMessages } from 'src/app/store/selectors/messages.selectors';
 import { updateMessageAction } from 'src/app/store/actions/messages.actions';
-import { PanelsVisibleService } from '../../serviсes/panelsVisible.service';
+import { PanelsVisibleService } from '../../serviсes/panels-visible.service';
 
 @Component({
   selector: 'app-edit-modal',
