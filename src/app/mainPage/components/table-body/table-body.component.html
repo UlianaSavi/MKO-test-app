@@ -1,17 +1,14 @@
 <ul class="table-colums">
-  <li class="table-colums__item">ID</li>
-  <li class="table-colums__item">Имя</li>
-  <li class="table-colums__item">Дата</li>
-  <li class="table-colums__item">Сообщение</li>
+  <li *ngFor="let column of columns" class="table-colums__item">{{ column.title }}</li>
 </ul>
-<div class="table-wrapper">
+<div id="table-wrapper" class="table-wrapper">
   <app-table-body-item
-    *ngFor="let message of messages | paginate: {
+    *ngFor="let tableBodyItem of tableBodyItemsData | paginate: {
     itemsPerPage: 10,
     currentPage: currentPage }"
-    [message]="message"
-    [selectedMessageId]="selectedMessageId"
-    (click)="onSelect(message)">
+    (click)="onSelect(tableBodyItem?.id || 0)"
+    [tableBodyItem]="tableBodyItem"
+    [selectedMessageId]="selectedMessageId">
   </app-table-body-item>
 </div>
 <pagination-controls pagination-controls class="pagination" (pageChange)="currentPage = $event"></pagination-controls>

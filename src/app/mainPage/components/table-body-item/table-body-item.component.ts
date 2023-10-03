@@ -1,16 +1,17 @@
 import { Component, Input } from '@angular/core';
-import { Observable, debounceTime, distinctUntilChanged } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { selectSearchStr } from 'src/app/store/selectors/messages.selectors';
-import { IMessage } from 'src/app/core/models/message.model';
 import { IAppState } from 'src/app/store/reducers/messages.reducer';
-import { PanelsVisibleService } from 'src/app/core/serviсes/PanelsVisible.service';
-import { ComponentNames } from 'src/app/core/models/componentsNames.model';
+import { PanelsVisibleService } from 'src/app/core/serviсes/panelsVisible.service';
+import { ComponentNames } from 'src/app/core/models/components-names.model';
+import { KeyValue } from '@angular/common';
+import { ITableBodyItemData } from '../../models/table-body-item-data.model';
 
 @Component({
   selector: 'app-table-body-item',
   templateUrl: './table-body-item.component.html',
-  styleUrls: ['./table-body-item.component.scss']
+  styleUrls: ['./table-body-item.component.scss'],
 })
 export class TableBodyItemComponent {
   constructor(
@@ -18,9 +19,8 @@ export class TableBodyItemComponent {
     private store: Store<IAppState>,
   ) {}
 
-  @Input() message: IMessage | null = null;
-
-  @Input() selectedMessageId: number | null = null;
+  @Input() tableBodyItem: ITableBodyItemData = {};
+  @Input() selectedMessageId: number = 0;
 
   searchStr$: Observable<string> = this.store.pipe(select(selectSearchStr));
 
@@ -34,5 +34,9 @@ export class TableBodyItemComponent {
 
   setDeleteModalVisible = () => {
     this.panelsVisibleService.setVisibleStatus(true, ComponentNames.DeleteModalComponent);
+  }
+
+  keys() {
+    return Object.keys(this.tableBodyItem) as (keyof ITableBodyItemData)[];
   }
 }

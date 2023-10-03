@@ -23,7 +23,7 @@
 
   &__cell:first-child {
     width: 100%;
-    max-width: 30px;
+    max-width: 75px;
   }
 
   &__cell:last-child {
@@ -63,6 +63,10 @@
   .table-item {
     gap: 2px;
     padding: 10px 4px;
+
+    &__cell {
+      text-align: center;
+    }
   }
 
   .btn-delete {

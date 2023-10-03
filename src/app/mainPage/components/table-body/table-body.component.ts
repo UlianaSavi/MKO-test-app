@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, ComponentFactoryResolver, Type, ViewChild, ViewContainerRef, createComponent } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { ComponentNames } from 'src/app/core/models/componentsNames.model';
+import { ComponentNames } from 'src/app/core/models/components-names.model';
 import { IMessage } from 'src/app/core/models/message.model';
-import { PanelsVisibleService } from 'src/app/core/serviсes/PanelsVisible.service';
+import { Icolumn } from 'src/app/core/models/table-config.model';
+import { ApiService } from 'src/app/core/serviсes/api.service';
+import { PanelsVisibleService } from 'src/app/core/serviсes/panelsVisible.service';
 import { loadAllMessagesAction } from 'src/app/store/actions/messages.actions';
 import { IAppState } from 'src/app/store/reducers/messages.reducer';
 import { selectMessages } from 'src/app/store/selectors/messages.selectors';
+import { ITableBodyItemData } from '../../models/table-body-item-data.model';
 
 @Component({
   selector: 'app-table-body',
@@ -15,7 +18,8 @@ import { selectMessages } from 'src/app/store/selectors/messages.selectors';
 })
 export class TableBodyComponent {
   constructor(private panelsVisibleService: PanelsVisibleService,
-  private store: Store<IAppState>)
+    private apiService: ApiService,
+    private store: Store<IAppState>)
   {}
 
   messages$: Observable<IMessage[]> = this.store.pipe(select(selectMessages));
@@ -28,19 +32,39 @@ export class TableBodyComponent {
 
   collection = this.messages;
 
+  columns: Icolumn[] = []; // array of visible columns
+
+  tableBodyItemsData: ITableBodyItemData[] = []; // data for generate table items
+
   ngOnInit() {
     this.store.dispatch(loadAllMessagesAction());
     this.messages$.subscribe(((messages) => {
       this.messages = messages;
+
+      this.apiService.getConfig().subscribe((config) => {
+        this.columns = config.content.columns.filter((column) => column.isVisible === 'true');
+
+        this.setTableBodyItemData();
+      });
     }));
+  }
+
+  setTableBodyItemData = () => {
+    const arr: ITableBodyItemData[] = this.messages.map((message) => this.columns.reduce((acc, column) => ({
+      ...acc,
+      [column.type]: message[column.type as keyof typeof message] + '',
+    }), {}));
+
+    this.tableBodyItemsData = arr;
+    console.log(this.tableBodyItemsData);
   }
 
   setSidebarVisible = () => {
     this.panelsVisibleService.setVisibleStatus(true, ComponentNames.SidebarComponent);
   }
 
-  onSelect = (message: IMessage | null) => {
+  onSelect = (messageId: number) => {
     this.setSidebarVisible();
-    this.selectedMessageId = message?.id || 0;
+    this.selectedMessageId = messageId;
   }
 }

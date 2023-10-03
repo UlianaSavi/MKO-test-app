@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ComponentNames } from 'src/app/core/models/componentsNames.model';
-import { PanelsVisibleService } from 'src/app/core/serviсes/PanelsVisible.service';
+import { ComponentNames } from 'src/app/core/models/components-names.model';
+import { PanelsVisibleService } from 'src/app/core/serviсes/panelsVisible.service';
 
 @Component({
   selector: 'app-table',

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { IViewlePanel } from '../models/IViewlePanel.model';
+import { IViewlePanel } from '../models/view-panel.model';
 
 @Injectable({
   providedIn: 'root'

@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { Subscription, Observable } from 'rxjs';
-import { ComponentNames } from 'src/app/core/models/componentsNames.model';
+import { ComponentNames } from 'src/app/core/models/components-names.model';
 import { IMessage } from 'src/app/core/models/message.model';
-import { PanelsVisibleService } from 'src/app/core/serviсes/PanelsVisible.service';
+import { PanelsVisibleService } from 'src/app/core/serviсes/panelsVisible.service';
 import { IAppState } from 'src/app/store/reducers/messages.reducer';
 import { selectMessages } from 'src/app/store/selectors/messages.selectors';
 

@@ -4,8 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { IAppState } from 'src/app/store/reducers/messages.reducer';
 import { deleteMessageAction } from 'src/app/store/actions/messages.actions';
-import { PanelsVisibleService } from '../../serviсes/PanelsVisible.service';
-import { ComponentNames } from '../../models/componentsNames.model';
+import { PanelsVisibleService } from '../../serviсes/panelsVisible.service';
+import { ComponentNames } from '../../models/components-names.model';
 
 @Component({
   selector: 'app-delete-modal',

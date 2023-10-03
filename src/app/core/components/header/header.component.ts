@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { PanelsVisibleService } from '../../serviсes/PanelsVisible.service';
-import { ComponentNames } from '../../models/componentsNames.model';
+import { PanelsVisibleService } from '../../serviсes/panelsVisible.service';
+import { ComponentNames } from '../../models/components-names.model';
 
 @Component({
   selector: 'app-header',

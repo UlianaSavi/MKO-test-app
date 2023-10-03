@@ -1,4 +1,38 @@
 {
+  "table-config": {
+    "type": "TableView",
+    "content": {
+      "columns": [
+        {
+          "title": "id",
+          "isVisible": "true",
+          "type": "id",
+          "color": "white"
+        },
+        {
+          "title": "Имя",
+          "isVisible": "true",
+          "type": "username",
+          "color": "white"
+        },
+        {
+          "title": "Дата",
+          "isVisible": "true",
+          "type": "datetime",
+          "color": "white"
+        },
+        {
+          "title": "Сообщение",
+          "isVisible": "true",
+          "type": "message",
+          "color": "white"
+        }
+      ]
+    },
+    "settings": {
+      "columnsColor": "white"
+    }
+  },
   "messages": [
     {
       "username": "Евгений",
