@@ -56,7 +56,6 @@ export class TableBodyComponent {
     }), {}));
 
     this.tableBodyItemsData = arr;
-    console.log(this.tableBodyItemsData);
   }
 
   setSidebarVisible = () => {
