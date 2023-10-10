@@ -1,0 +1,104 @@
+{
+  "table-config": {
+    "type": "TableView",
+    "content": {
+      "columns": [
+        {
+          "title": "id",
+          "isVisible": "true",
+          "type": "id",
+          "color": "white"
+        },
+        {
+          "title": "Имя",
+          "isVisible": "true",
+          "type": "username",
+          "color": "white"
+        },
+        {
+          "title": "Дата",
+          "isVisible": "true",
+          "type": "datetime",
+          "color": "white"
+        },
+        {
+          "title": "Сообщение",
+          "isVisible": "true",
+          "type": "message",
+          "color": "white"
+        }
+      ]
+    },
+    "settings": {
+      "columnsColor": "white"
+    }
+  },
+  "messages": [
+    {
+      "username": "Евгений",
+      "datetime": "2023-09-15",
+      "message": "Это сообщение от Евгения",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "username": "Наталья",
+      "datetime": "2023-08-31",
+      "message": "Привет!!"
+    },
+    {
+      "id": 4,
+      "username": "Никита",
+      "datetime": "2023-09-21",
+      "message": "Я Никита, Привет!"
+    },
+    {
+      "username": "Иван",
+      "datetime": "2023-09-28",
+      "message": "Все будет сдано в срок!",
+      "id": 5
+    },
+    {
+      "username": "Константин",
+      "datetime": "2023-10-28",
+      "message": "Сообщение СообщениеСообщение",
+      "id": 6
+    },
+    {
+      "username": "Ника",
+      "datetime": "2023-08-30",
+      "message": "Текст сообщения",
+      "id": 7
+    },
+    {
+      "username": "Владимир",
+      "datetime": "2023-08-30",
+      "message": "Текст сообщенияТекст сообщенияТекст сообщения",
+      "id": 8
+    },
+    {
+      "username": "Мария",
+      "datetime": "2023-08-29",
+      "message": "Текст сообщенияТекст сообщенияТекст сообщенияТекст сообщения",
+      "id": 9
+    },
+    {
+      "username": "Екатерина",
+      "datetime": "2023-09-02",
+      "message": "Текст сообщенияТекст сообщения",
+      "id": 10
+    },
+    {
+      "username": "Вика",
+      "datetime": "2023-09-01",
+      "message": "Текст сообщенияТекст сообщения",
+      "id": 11
+    },
+    {
+      "username": "daed asd",
+      "datetime": "2023-10-05",
+      "message": "asdsda",
+      "id": 12
+    }
+  ]
+}

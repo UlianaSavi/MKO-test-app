@@ -1,0 +1,31 @@
+<div class="sidebar" *ngIf="isSidebarVisible">
+  <div class="wrapper">
+    <h3 class="h3">Данные сообщения</h3>
+    <div class="cross" (click)="setSidebarVisible()">
+      <img class="img" src="/assets/icons/cross.svg" alt="cross">
+    </div>
+    <div class="info" *ngIf="!showemptyMessage && message">
+      <div class="info__item">
+        <div class="info__item__title">ID</div>
+        <div class="info__item__text">{{ message.id }}</div>
+      </div>
+      <div class="info__item">
+        <div class="info__item__title">Имя</div>
+        <div class="info__item__text">{{ message.username }}</div>
+      </div>
+      <div class="info__item">
+        <div class="info__item__title">Дата</div>
+        <div class="info__item__text">{{ message.datetime }}</div>
+      </div>
+      <div class="info__item">
+        <div class="info__item__title">Текст сообщения</div>
+        <div class="info__item__text">{{ message.message }}</div>
+      </div>
+    </div>
+    <h4 *ngIf="showemptyMessage">{{ emptyMessage }}</h4>
+  </div>
+  <button class="btn btn-blue"
+    [disabled]="showemptyMessage"
+    (click)="showEditModal()">Изменить
+  </button>
+</div>

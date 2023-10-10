@@ -1,0 +1,102 @@
+@import '../../../styles/variables';
+
+:host {
+  display: block;
+  height: 100vh;
+
+  overflow: hidden;
+}
+
+.table-colums {
+  display: flex;
+  gap: 10px;
+  background-color: $grey-background;
+  padding: 10px;
+  color: $grey;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 10px;
+
+  &__item {
+    width: 100%;
+    max-width: 150px;
+  }
+
+  &__item:first-child {
+    width: 100%;
+    max-width: 75px;
+  }
+
+  &__item:last-child {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.table-wrapper {
+  height: 80vh;
+
+  overflow-x: auto;
+}
+
+.pagination ::ng-deep .ngx-pagination {
+  display: flex;
+  justify-content: flex-start;
+  width: 90%;
+
+  position: fixed;
+  bottom: 5px;
+  margin: 0;
+
+  background: $white-background;
+
+  li {
+    margin: 0 20px;
+  }
+}
+
+.pagination ::ng-deep .ngx-pagination a:hover, .ngx-pagination button:hover {
+  padding: 5px 10px;
+
+  border-radius: 5px;
+}
+
+.pagination ::ng-deep .ngx-pagination .current {
+  padding: 5px 10px;
+
+  background: $btn-blue;
+  border-radius: 50%;
+}
+
+.pagination ::ng-deep .ngx-pagination::before,
+.pagination ::ng-deep .ngx-pagination::after {
+  display: none;
+}
+
+@media (max-width: 420px) {
+  .table-wrapper {
+    height: 75vh;
+
+    overflow-x: auto;
+  }
+
+  .table-colums {
+    font-size: 0.8em;
+    gap: 2px;
+    padding: 10px 4px;
+  }
+
+  .pagination ::ng-deep nav {
+    background: $white-background;
+  }
+
+  .pagination ::ng-deep .ngx-pagination {
+    max-height: 30px;
+    align-items: center;
+    justify-content: space-between;
+
+    li {
+      margin: 0;
+    }
+  }
+}

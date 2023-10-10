@@ -1,0 +1,14 @@
+<ul class="table-colums">
+  <li *ngFor="let column of columns" class="table-colums__item">{{ column.title }}</li>
+</ul>
+<div id="table-wrapper" class="table-wrapper">
+  <app-table-body-item
+    *ngFor="let tableBodyItem of tableBodyItemsData | paginate: {
+    itemsPerPage: 10,
+    currentPage: currentPage }"
+    (click)="onSelect(tableBodyItem?.id || 0)"
+    [tableBodyItem]="tableBodyItem"
+    [selectedMessageId]="selectedMessageId">
+  </app-table-body-item>
+</div>
+<pagination-controls pagination-controls class="pagination" (pageChange)="currentPage = $event"></pagination-controls>
